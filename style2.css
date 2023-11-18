@@ -1,0 +1,130 @@
+body {
+    font-size: 12px;
+}
+
+.sideContent {
+    background-color: whitesmoke;
+}
+
+.topNav {
+    display: inline-flex;
+    margin-bottom: 10px;
+    background-color: whitesmoke;
+    overflow-inline: auto;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.addButton {
+    height: 30px;
+    width: 40px;
+    padding-left: 3px;
+    padding-top: 1.5px;
+    position: fixed;
+    border: 1px solid rgb(228, 223, 223);
+}
+#myTab {
+    position: relative;
+    margin-left: 35px;
+}
+svg {
+    height: 27px;
+}
+
+.nav-item {
+    border: 1px solid rgb(228, 223, 223);
+    font-size: 12px;
+    text-align: center;
+    width: 130px;
+    height: 30px;
+}
+.nav-link {
+    color: rgb(84, 80, 80);
+}
+.nav-item:hover {
+    background-color: rgb(131, 199, 131);
+}
+.nav-link:hover {
+    color: rgb(84, 80, 80);
+}
+
+#bodyContent {
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.tableHeading {
+    margin-left: 250px;
+}
+
+.mainTable {
+    width:50%; 
+    border-color:gray; 
+    margin-bottom: 600px;
+}
+
+.sideContentHeader {
+    border: 1px solid rgb(228, 223, 223);
+    padding: 8px 0px;
+    margin-bottom: 25px;
+}
+
+label, input, p {
+    color: rgb(84, 80, 80);
+}
+
+.sheetDetails {
+    display: inline-flex;
+    margin-left: 38px;
+    justify-content: space-between;
+}
+
+.sheetForm {
+    margin-left: 38px;
+}
+
+#bgInput {
+    width: 32%;
+    background-color: white;
+    height: 22px;
+    border: 1px solid rgb(228, 223, 223);
+    border-radius: 3px;
+    margin-left: 70px;
+}
+
+#sheetName {
+    width: 90%;
+    border-radius: 3px;
+    margin-top: 5px;
+    border: 1px solid rgb(228, 223, 223);
+}
+
+.sheetButton {
+    width: 80%;
+    border: 1px solid rgb(228, 223, 223);
+    background-color: transparent;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.btn-container {
+    text-align: center;
+}
+
+.split {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.left {
+    left: 0;
+    top: 0;
+}
+  
+  .right {
+    right: 0;
+}
