@@ -4,6 +4,7 @@ body {
 
 .sideContent {
     background-color: whitesmoke;
+    border-left: 1px solid rgb(228, 223, 223);
 }
 
 .topNav {
@@ -16,7 +17,7 @@ body {
 }
 
 .addButton {
-    height: 30px;
+    height: 37px;
     width: 40px;
     padding-left: 3px;
     padding-top: 1.5px;
@@ -24,22 +25,21 @@ body {
     border: 1px solid rgb(228, 223, 223);
 }
 #myTab {
-    position: relative;
-    margin-left: 35px;
+    position: fixed;
+    margin-left: 40px;
 }
 svg {
-    height: 27px;
+    height: 30px;
 }
 
 .nav-item {
     border: 1px solid rgb(228, 223, 223);
     font-size: 12px;
-    text-align: center;
     width: 130px;
-    height: 30px;
 }
 .nav-link {
     color: rgb(84, 80, 80);
+    text-align: center;
 }
 .nav-item:hover {
     background-color: rgb(131, 199, 131);
@@ -47,27 +47,34 @@ svg {
 .nav-link:hover {
     color: rgb(84, 80, 80);
 }
+.nav-item:active {
+    background-color: rgb(131, 199, 131);
+}
 
-#bodyContent {
+#bodyContent1 {
+    margin-top: 20px;
+    margin-left: 40px;
+}
+#bodyContent2 {
+    margin-top: 20px;
+    margin-left: 40px;
+}
+#bodyContent3 {
     margin-top: 20px;
     margin-left: 40px;
 }
 
 .tableHeading {
-    margin-left: 250px;
+    margin-left: 430px;
+    font-size: 14px;
 }
 
 .mainTable {
-    width:50%; 
+    width:80%; 
     border-color:gray; 
     margin-bottom: 600px;
 }
 
-.sideContentHeader {
-    border: 1px solid rgb(228, 223, 223);
-    padding: 8px 0px;
-    margin-bottom: 25px;
-}
 
 label, input, p {
     color: rgb(84, 80, 80);
@@ -116,8 +123,15 @@ label, input, p {
     position: fixed;
     z-index: 1;
     top: 0;
+    padding-top: 10px;
+}
+.split1 {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
     overflow-x: hidden;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 .left {
