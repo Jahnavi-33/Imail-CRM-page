@@ -2,6 +2,38 @@ body {
     font-size: 12px;
 }
 
+.app {
+    background-color: #f5f5f7;
+    display: inline-flex;
+}
+
+svg.app-name {
+    font-size: 21px;
+    font-weight: 600;
+    font-family: ToolbarSFTextVariant,Helvetica,sans-serif;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -webkit-margin-before: 1px;
+    margin-block-start:1px
+}
+
+
+ .action-buttons {
+    display: inline-flex;
+    margin-left: 1200px;
+    margin-right: 0;
+    margin-top: 5px;
+}
+ui-button {
+    margin-right: 15px;
+}
+
 .sideContent {
     background-color: whitesmoke;
     border-left: 1px solid rgb(228, 223, 223);
@@ -22,11 +54,13 @@ body {
     padding-left: 3px;
     padding-top: 1.5px;
     position: fixed;
+    cursor: pointer;
     border: 1px solid rgb(228, 223, 223);
 }
 #myTab {
     position: fixed;
     margin-left: 40px;
+    --bs-border-radius: 0px;
 }
 svg {
     height: 30px;
@@ -37,18 +71,17 @@ svg {
     font-size: 12px;
     width: 130px;
 }
+
 .nav-link {
     color: rgb(84, 80, 80);
     text-align: center;
 }
-.nav-item:hover {
-    background-color: rgb(131, 199, 131);
-}
 .nav-link:hover {
     color: rgb(84, 80, 80);
 }
-.nav-item:active {
-    background-color: rgb(131, 199, 131);
+
+.nav-item > .nav-link.active  {
+    background-color: rgb(200, 241, 227)
 }
 
 #bodyContent1 {
@@ -90,19 +123,25 @@ label, input, p {
     margin-left: 38px;
 }
 
-#bgInput {
-    width: 32%;
-    background-color: white;
-    height: 22px;
-    border: 1px solid rgb(228, 223, 223);
-    border-radius: 3px;
-    margin-left: 70px;
+#colorPicker {
+    border-color: black;
+    border-radius: 3px; 
+    width: 90px; 
+    height: 20px;
+    margin-left: 80px;
 }
 
 #sheetName {
     width: 90%;
     border-radius: 3px;
     margin-top: 5px;
+    border: 1px solid rgb(228, 223, 223);
+}
+
+#approvedHours, #PendingHours {
+    border-radius: 3px;
+    margin-top: 10px;
+    width: 40%;
     border: 1px solid rgb(228, 223, 223);
 }
 
@@ -129,14 +168,14 @@ label, input, p {
     height: 100%;
     position: fixed;
     z-index: 1;
-    top: 0;
+    top: 36px;
     overflow-x: hidden;
     padding-top: 10px;
 }
 
 .left {
     left: 0;
-    top: 0;
+    top: 30px;
 }
   
   .right {
