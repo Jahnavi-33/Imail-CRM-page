@@ -1,0 +1,76 @@
+/* .folders {
+    border-right: 1px solid black;
+    margin-left: 10px;
+} */
+.notesList {
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.folder {
+    display: inline-flex;
+    border: none;
+    background-color: #e6e9ed;
+    border-radius: 10px;
+    text-indent: 10px;
+    height: 30px;
+    margin-top: 10px;
+}
+.folder > svg {
+    margin-top: 8px;
+    margin-left: 20px;
+    color: gold;
+}
+.folder > p {
+    margin-top: 4px;
+}
+
+.newFolder {
+    display: flex;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    text-indent: 8px;
+    color: gold
+}
+.newFolder > svg {
+    margin-top: 5px;
+}
+
+.search {
+    margin-top: 10px;
+}
+
+.form {
+    position: relative;
+}
+
+.form .fa-search {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    color: #81858b;
+}
+
+.form-input {
+    height: 30px;
+    text-indent: 15px;
+    border-radius: 10px;
+    background-color: #e6e9ed;
+}
+
+.form-input:focus {
+    box-shadow: none;
+    border: none;
+    background-color: #e6e9ed;
+}
+
+.card-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.noteArea {
+    border: none;
+}
