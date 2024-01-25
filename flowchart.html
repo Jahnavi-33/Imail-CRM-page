@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowchart</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+
+<style>
+    .flowchartLeft-Section {
+        background-color: #E9E9E9;
+    }
+    .flowchartLeft-BTNcontainer {
+        display: flex;
+        margin-top: 5%;
+        margin-left: 3%;
+    }
+.custom-circle {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin: 3px;
+        }
+.search {
+    margin-top: 22px;
+    margin-bottom: 40px;
+}
+.bi-search {
+    position: absolute;
+    z-index: 1;
+    left: 3%;
+    bottom: 15%;
+    color: #717274;
+}
+#searchtext::placeholder { /* Most modern browsers support this now. */
+    color: #717274;
+ }
+.form {
+    position: relative;
+}
+.searchInputField {
+    position: relative;
+    font-size: 15px;
+    padding: 2%;
+    width: 100%;
+    position: relative; 
+    font-size: 15px;
+    text-indent: 25px; 
+    background-color:#CCC8C8;
+    border: none;
+    font-family: Poppins;
+}
+.flowchartLeft-section1-container {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #707070;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+.section1Container-left-span {
+    font-family: Poppins;
+font-size: 20px;
+font-weight: 400;
+line-height: 30px;
+letter-spacing: 0em;
+text-align: left;
+margin-left: 6px;
+color: #414141;
+}
+.flowchartLeft-subHeading {
+    font-family: Poppins;
+font-size: 14px;
+font-weight: 400;
+line-height: 25px;
+letter-spacing: 0em;
+text-align: left;
+color: #717274;
+margin-bottom: 10px;
+margin-top: 20px;
+}
+.flowchartLeft-section2-ul {
+    list-style: none;
+    padding-left: 0px;
+}
+.flowchartLeft-section2-container {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+.flowchartLeft-section2-container:hover {
+    background-color: #CCC8C8;
+}
+.section2Container-left-span {
+    font-family: Poppins;
+font-size: 17px;
+font-weight: 500;
+line-height: 25px;
+letter-spacing: 0em;
+text-align: left;
+color: #313746;
+margin-left: 6px;
+}
+.flowchartLeft-section2-container-bottom {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+.section2Container-bottom-span {
+    font-family: Poppins;
+font-size: 20px;
+font-weight: 500;
+line-height: 30px;
+letter-spacing: 0em;
+text-align: left;
+color: #717274;
+margin-left: 6px;
+}
+.flowchartLeft-section3-ul {
+    list-style: none;
+    padding-left: 0px;
+}
+.flowchartLeft-section3-container {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+.flowchartLeft-section3-container:hover {
+    background-color: #CCC8C8;
+}
+.flowchartLeft-section4-ul {
+    list-style: none;
+    padding-left: 0px;
+}
+.custom-circle2 {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-top: 7%;
+            margin-right: 6px;
+        }
+        .section4Container-left {
+            display: flex;
+        }
+.flowchartRight-Section-header-span1 {
+    font-family: Poppins;
+font-size: 25px;
+font-weight: 700;
+line-height: 38px;
+letter-spacing: 0em;
+text-align: left;
+color: #313746;
+}
+.flowchartRight-Section-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 10px 5px 30px;
+    border-bottom: 1px solid #707070;
+}
+.flowchartRight-header-div3 {
+    display: flex;
+    margin-right: 15px;
+}
+.headerBtn1 {
+    border: none;
+    background-color: #F2F2F2;
+    color: #313746;
+    font-size: 17px;
+    font-family: Poppins;
+}
+.headerBtn2 {
+    border: 1px solid #A7A9AD;
+    color: #313746;
+    font-size: 17px;
+    font-family: Poppins;
+    width: 90px;
+}
+.header-div3-span {
+    font-family: Poppins;
+font-size: 17px;
+font-weight: 400;
+line-height: 25px;
+letter-spacing: 0em;
+text-align: left;
+color: #313746;
+margin-right: 5px;
+}
+.flowchartRight-body {
+    margin: 0px;
+    padding: 0px;
+}
+.flow-card {
+    width: 200px;
+    max-width: 200px;
+    max-height: 60px;
+    box-shadow: 0 5px 5px #00000029;
+    margin: auto;
+}
+.custom-circle3 {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 3px;
+        }
+.flow-card-body {
+    display: flex;
+    justify-content: space-between;
+}
+.card-btn-container {
+    display: flex;
+}
+.flow-card2 {
+    width: 250px;
+    max-width: 250px;
+    max-height: 60px;
+    box-shadow: 0 5px 5px #00000029;
+    margin: auto;
+    background-color: #FFF7F2;
+}
+.flow-card3 {
+    width: 240px;
+    max-width: 240px;
+    max-height: 100px;
+    box-shadow: 0 5px 5px #00000029;
+    margin: auto;
+    background-color: #FFF7F2;
+}
+.flow-card4 {
+    width: 240px;
+    max-width: 240px;
+    max-height: 100px;
+    box-shadow: 0 5px 5px #00000029;
+    margin: auto;
+    background-color: #FFFDF2;
+}
+.flow-card5 {
+    width: 200px;
+    max-width: 200px;
+    max-height: 400px;
+    box-shadow: 0 5px 5px #00000029;
+    margin: auto;
+}
+.custom-control-label {
+    text-align: left;
+}
+.tree ul {
+	padding-top: 20px; position: relative;
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+    padding-left: 0px;
+}
+
+.tree li {
+	float: left; text-align: center;
+	list-style-type: none;
+	position: relative;
+	padding: 20px 5px 0 5px;
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+/*We will use ::before and ::after to draw the connectors*/
+
+.tree li::before, .tree li::after{
+	content: '';
+	position: absolute; top: 0; right: 50%;
+	border-top: 1px solid #ccc;
+	width: 50%; height: 20px;
+}
+.tree li::after{
+	right: auto; left: 50%;
+	border-left: 1px solid #ccc;
+}
+
+/*We need to remove left-right connectors from elements without 
+any siblings*/
+.tree li:only-child::after, .tree li:only-child::before {
+	display: none;
+}
+
+/*Remove space from the top of single children*/
+.tree li:only-child{ padding-top: 0;}
+
+/*Remove left connector from first child and 
+right connector from last child*/
+.tree li:first-child::before, .tree li:last-child::after{
+	border: 0 none;
+}
+/*Adding back the vertical connector to the last nodes*/
+.tree li:last-child::before{
+	border-right: 1px solid #ccc;
+	border-radius: 0 5px 0 0;
+	-webkit-border-radius: 0 5px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+}
+.tree li:first-child::after{
+	border-radius: 5px 0 0 0;
+	-webkit-border-radius: 5px 0 0 0;
+	-moz-border-radius: 5px 0 0 0;
+}
+
+/*Time to add downward connectors from parents*/
+.tree ul ul::before{
+	content: '';
+	position: absolute; top: 0; left: 50%;
+	border-left: 1px solid #ccc;
+	width: 0; height: 20px;
+}
+
+.tree li a{
+	text-decoration: none;
+	color: #666;
+	font-family: arial, verdana, tahoma;
+	font-size: 11px;
+	display: inline-block;
+	
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+/*Time for some hover effects*/
+/*We will apply the hover effect the the lineage of the element also*/
+.tree li a:hover, .tree li a:hover+ul li a {
+	background: #c8e4f8; color: #000; border: 1px solid #94a0b4;
+}
+/*Connector styles on hover*/
+.tree li a:hover+ul li::after, 
+.tree li a:hover+ul li::before, 
+.tree li a:hover+ul::before, 
+.tree li a:hover+ul ul::before{
+	border-color:  #94a0b4;
+}
+.flow-card5-span {
+    font-family: Poppins;
+font-size: 14px;
+font-weight: 700;
+line-height: 25px;
+letter-spacing: 0em;
+text-align: left;
+}
+.card-label1 {
+    font-family: Poppins;
+font-size: 14px;
+font-weight: 700;
+line-height: 25px;
+letter-spacing: 0em;
+text-align: left;
+}
+.card-label2 {
+    font-family: Poppins;
+font-size: 14px;
+font-weight: 700;
+line-height: 25px;
+letter-spacing: 0em;
+text-align: left;
+color: #717274;
+}
+.flow-card5-subspan {
+    font-family: Poppins;
+font-size: 14px;
+font-weight: 400;
+text-align: left;
+color: #313746;
+}
+.custom-circle4 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.flow-card5-colorBar {
+    display: flex;
+   justify-content: space-between;
+   margin-top: 10%;
+}
+.flow-card5-list {
+    text-align: left;
+    margin-top: 25px;
+}
+.flow-card5-list > hr {
+    margin: 0px;
+    border-top: 1px solid black;
+}
+.flow-card5-list-item {
+    margin: 8px 0px;
+    padding: 3px 5px;
+    width: 50%;
+}
+</style>
+</head>
+<body>
+
+    <div class="flowchartMainPage" id="flowchartMainPage" style=" overflow-x: hidden;">
+        <div class="row" style="height: 100vh;">
+            <div class="col-md-3 flowchartLeft-Section">
+                <div class="flowchartLeft-BTNcontainer container">
+                    <div class="custom-circle" style="background-color: #FF655D;"></div>
+                    <div class="custom-circle" style="background-color: #F8BD31;"></div>
+                    <div class="custom-circle" style="background-color: #2ECF45;"></div>
+                </div>
+                <div class="flowchartLeft-mainContainer container">
+                    <div class="container search" id="searchBar">
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <div class="col-md-12">
+                                <div class="form">
+                                    <i class="bi bi-search"></i>
+                                    <input class="form-control form-input searchInputField" id="searchtext" type="search"
+                                        placeholder="Search">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flowchartLeft-section1 container">
+                        <div class="flowchartLeft-section1-container">
+                            <div class="section1Container-left">
+                                <i class="bi bi-square"></i>
+                                <span class="section1Container-left-span">Actual</span>
+                            </div>
+                            <span class="section1Container-left-span">16</span>
+                        </div>
+                        <div class="flowchartLeft-section1-container">
+                            <div class="section1Container-left">
+                                <i class="bi bi-calendar4"></i>
+                                <span class="section1Container-left-span">Today</span>
+                            </div>
+                            <span class="section1Container-left-span">3</span>
+                        </div>
+                    </div>
+                    <div class="flowchartLeft-section2 container">
+                        <p class="flowchartLeft-subHeading">Projects</p>
+                        <ul class="flowchartLeft-section2-ul">
+                            <li class="flowchartLeft-section2-ul-item">
+                                <div class="flowchartLeft-section2-container" style="background-color: #CCC8C8;">
+                                    <div class="section2Container-left">
+                                        <i class="bi bi-file-earmark"></i>
+                                        <span class="section2Container-left-span">Summer Vacation</span>
+                                    </div>
+                                    <span class="section2Container-left-span">16</span>
+                                </div>
+                            </li>
+                            <li class="flowchartLeft-section2-ul-item">
+                                <div class="flowchartLeft-section2-container">
+                                    <div class="section2Container-left">
+                                        <i class="bi bi-file-earmark"></i>
+                                        <span class="section2Container-left-span">Promo Movie</span>
+                                    </div>
+                                    <span class="section2Container-left-span">16</span>
+                                </div>
+                            </li>
+                            <li class="flowchartLeft-section2-ul-item">
+                                <div class="flowchartLeft-section2-container">
+                                    <div class="section2Container-left">
+                                        <i class="bi bi-file-earmark"></i>
+                                        <span class="section2Container-left-span">House Party</span>
+                                    </div>
+                                    <span class="section2Container-left-span">16</span>
+                                </div>
+                            </li>
+                            <li class="flowchartLeft-section2-ul-item">
+                                <div class="flowchartLeft-section2-container">
+                                    <div class="section2Container-left">
+                                        <i class="bi bi-file-earmark"></i>
+                                        <span class="section2Container-left-span">Home Improvement</span>
+                                    </div>
+                                    <span class="section2Container-left-span">16</span>
+                                </div>
+                            </li>
+                            <li class="flowchartLeft-section2-ul-item">
+                                <div class="flowchartLeft-section2-container">
+                                    <div class="section2Container-left">
+                                        <i class="bi bi-file-earmark"></i>
+                                        <span class="section2Container-left-span">Get a New Job</span>
+                                    </div>
+                                    <span class="section2Container-left-span">16</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="flowchartLeft-section2-container-bottom">
+                            <div class="section2Container-left">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="margin-bottom: 2%;" fill="#717274" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                    <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0"/>
+                                </svg>
+                                <span class="section2Container-bottom-span">New Project</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flowchartLeft-section3 container">
+                        <p class="flowchartLeft-subHeading">Overview</p>
+                        <ul class="flowchartLeft-section3-ul">
+                            <li class="flowchartLeft-section3-ul-item">
+                                <div class="flowchartLeft-section2-container">
+                                    <div class="section2Container-left">
+                                        <i class="bi bi-calendar3"></i>
+                                        <span class="section2Container-left-span">Upcoming</span>
+                                    </div>
+                                    <span class="section2Container-left-span">3</span>
+                                </div>
+                            </li>
+                            <li class="flowchartLeft-section3-ul-item">
+                                <div class="flowchartLeft-section2-container">
+                                    <div class="section2Container-left">
+                                        <i class="bi bi-calendar4"></i>
+                                        <span class="section2Container-left-span">Anytime</span>
+                                    </div>
+                                    <span class="section2Container-left-span">3</span>
+                                </div>
+                            </li>
+                            <li class="flowchartLeft-section3-ul-item">
+                                <div class="flowchartLeft-section2-container">
+                                    <div class="section2Container-left">
+                                        <i class="bi bi-person"></i>
+                                        <span class="section2Container-left-span">Delegated</span>
+                                    </div>
+                                    <span class="section2Container-left-span">3</span>
+                                </div>
+                            </li>
+                            <li class="flowchartLeft-section3-ul-item">
+                                <div class="flowchartLeft-section2-container">
+                                    <div class="section2Container-left">
+                                        <i class="bi bi-check-square"></i>
+                                        <span class="section2Container-left-span">Completed</span>
+                                    </div>
+                                    <span class="section2Container-left-span">3</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flowchartLeft-section4 container">
+                        <p class="flowchartLeft-subHeading">Tags</p>
+                        <ul class="flowchartLeft-section4-ul">
+                            <li class="flowchartLeft-section4-ul-item">
+                                <div class="flowchartLeft-section2-container">
+                                    <div class="section4Container-left">
+                                        <div class="custom-circle2" style="background-color: #00B636;"></div>
+                                        <span class="section2Container-left-span">Things to buy</span>
+                                    </div>
+                                    <span class="section2Container-left-span">3</span>
+                                </div>
+                            </li>
+                            <li class="flowchartLeft-section4-ul-item">
+                                <div class="flowchartLeft-section2-container">
+                                    <div class="section4Container-left">
+                                        <div class="custom-circle2" style="background-color: #F64800;"></div>
+                                        <span class="section2Container-left-span">To double check</span>
+                                    </div>
+                                    <span class="section2Container-left-span">3</span>
+                                </div>
+                            </li>
+                            <li class="flowchartLeft-section4-ul-item">
+                                <div class="flowchartLeft-section2-container">
+                                    <div class="section4Container-left">
+                                        <div class="custom-circle2" style="background-color: #009FFF;"></div>
+                                        <span class="section2Container-left-span">Paperwork</span>
+                                    </div>
+                                    <span class="section2Container-left-span">3</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 flowchartRight-Section" style="padding: 0px;">
+                <div class="flowchartRight-Section-header">
+                    <div class="flowchartRight-header-div1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" style="margin-bottom: 3%;" height="18" fill="#313746" class="bi bi-file-earmark" viewBox="0 0 16 16">
+                            <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"/>
+                        </svg>
+                        <span class="flowchartRight-Section-header-span1">Summer Vacation</span>
+                    </div>
+                    <div class="flowchartRight-header-div2">
+                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic outlined example">
+                            <button type="button" class="btn headerBtn1" >Flowchart</button>
+                            <button type="button" class="btn headerBtn2" >List</button>
+                        </div>
+                    </div>
+                    <div class="flowchartRight-header-div3">
+                        <span class="header-div3-span">Show Completed</span>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customSwitches">
+                            <label class="custom-control-label" for="customSwitches"></label>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#707070" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="flowchartRight-body container">
+                    <div class="tree">
+                        <ul>
+                            <li>
+                                <a href="#"> <!--  parent -->
+                                    <div class="card flow-card" id="card1">
+                                        <div class="card-body flow-card-body">
+                                            <span class="flow-card5-span">Workflow</span>
+                                            <div class="card-btn-container">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" style="margin-top: 10%;" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+                                                    <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+                                                </svg>
+                                                <div class="custom-circle3" style="background-color: white;border:1px solid #DEDFE2;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul>
+                                    <li> <!--  child1 -->
+                                        <a href="#"> 
+                                            <div class="card flow-card" id="card2">
+                                                <div class="card-body flow-card-body">
+                                                    <span class="flow-card5-span">Sales</span>
+                                                    <div class="card-btn-container">
+                                                        <div class="custom-circle3" style="background-color: #FD7C42;"></div>
+                                                        <div class="custom-circle3" style="background-color: white;border:1px solid #DEDFE2;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <div class="card flow-card5" id="card1">
+                                                        <div class="card-body">
+                                                            <div class="flow-card-body">
+                                                                <span class="flow-card5-span">Rent a GPS navigator</span>
+                                                                <div class="card-btn-container">
+                                                                    <div class="custom-circle3" style="background-color: white;border:1px solid #DEDFE2;"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="flow-card5-subspan">Maybe consider  an iPhone app
+                                                                    with offline maps?
+                                                            </div>
+                                                            <div class="flow-card5-colorBar">
+                                                                <div class="custom-circle4" style="border: 1px solid #A7A9AD;"><i class="bi bi-check" style="margin: auto;"></i></div>
+                                                                <div class="custom-circle4" style="background-color: #FFBBB7;border: none;"></div>
+                                                                <div class="custom-circle4" style="background-color: #FFDAB1;"></div>
+                                                                <div class="custom-circle4" style="background-color: #FFEEB1;"></div>
+                                                                <div class="custom-circle4" style="background-color: #B3F0BD;"></div>
+                                                                <div class="custom-circle4" style="background-color: #A8D2FF;"></div>
+                                                                <div class="custom-circle4" style="background-color: #EBC1F9;"></div>
+                                                            </div>
+                                                            <div class="flow-card5-list">
+                                                                <p class="flow-card5-list-item" style="background-color: #11B248; color: white;border-radius: 5px;">Things to buy</p>
+                                                                <hr>
+                                                                <p class="flow-card5-list-item">Add Due Date</p>
+                                                                <hr>
+                                                                <p class="flow-card5-list-item">Add Delegate</p>
+                                                                <hr>
+                                                                <p class="flow-card5-list-item">Add Location</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li> <!--  child2  -->
+                                        <a href="#">
+                                            <div class="card flow-card" id="card3">
+                                                <div class="card-body flow-card-body">
+                                                    <span class="flow-card5-span">Opportunity</span>
+                                                    <div class="card-btn-container">
+                                                        <div class="custom-circle3" style="background-color: #FD7C42;"></div>
+                                                        <div class="custom-circle3" style="background-color: white;border:1px solid #DEDFE2;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <div class="card flow-card5" id="card1">
+                                                        <div class="card-body">
+                                                            <div class="flow-card-body">
+                                                                <span class="flow-card5-span">Rent a GPS navigator</span>
+                                                                <div class="card-btn-container">
+                                                                    <div class="custom-circle3" style="background-color: white;border:1px solid #DEDFE2;"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="flow-card5-subspan">Maybe consider  an iPhone app
+                                                                    with offline maps?
+                                                            </div>
+                                                            <div class="flow-card5-colorBar">
+                                                                <div class="custom-circle4" style="border: 1px solid #A7A9AD;"><i class="bi bi-check" style="margin: auto;"></i></div>
+                                                                <div class="custom-circle4" style="background-color: #FFBBB7;border: none;"></div>
+                                                                <div class="custom-circle4" style="background-color: #FFDAB1;"></div>
+                                                                <div class="custom-circle4" style="background-color: #FFEEB1;"></div>
+                                                                <div class="custom-circle4" style="background-color: #B3F0BD;"></div>
+                                                                <div class="custom-circle4" style="background-color: #A8D2FF;"></div>
+                                                                <div class="custom-circle4" style="background-color: #EBC1F9;"></div>
+                                                            </div>
+                                                            <div class="flow-card5-list">
+                                                                <p class="flow-card5-list-item" style="background-color: #11B248; color: white;border-radius: 5px;">Things to buy</p>
+                                                                <hr>
+                                                                <p class="flow-card5-list-item">Add Due Date</p>
+                                                                <hr>
+                                                                <p class="flow-card5-list-item">Add Delegate</p>
+                                                                <hr>
+                                                                <p class="flow-card5-list-item">Add Location</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li> <!--  child3  -->
+                                        <a href="#">
+                                            <div class="card flow-card" id="card3">
+                                                <div class="card-body flow-card-body">
+                                                    <span class="flow-card5-span">Client</span>
+                                                    <div class="card-btn-container">
+                                                        <div class="custom-circle3" style="background-color: #FD7C42;"></div>
+                                                        <div class="custom-circle3" style="background-color: white;border:1px solid #DEDFE2;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <div class="card flow-card5" id="card1">
+                                                        <div class="card-body">
+                                                            <div class="flow-card-body">
+                                                                <span class="flow-card5-span">Rent a GPS navigator</span>
+                                                                <div class="card-btn-container">
+                                                                    <div class="custom-circle3" style="background-color: white;border:1px solid #DEDFE2;"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="flow-card5-subspan">Maybe consider  an iPhone app
+                                                                    with offline maps?
+                                                            </div>
+                                                            <div class="flow-card5-colorBar">
+                                                                <div class="custom-circle4" style="border: 1px solid #A7A9AD;"><i class="bi bi-check" style="margin: auto;"></i></div>
+                                                                <div class="custom-circle4" style="background-color: #FFBBB7;border: none;"></div>
+                                                                <div class="custom-circle4" style="background-color: #FFDAB1;"></div>
+                                                                <div class="custom-circle4" style="background-color: #FFEEB1;"></div>
+                                                                <div class="custom-circle4" style="background-color: #B3F0BD;"></div>
+                                                                <div class="custom-circle4" style="background-color: #A8D2FF;"></div>
+                                                                <div class="custom-circle4" style="background-color: #EBC1F9;"></div>
+                                                            </div>
+                                                            <div class="flow-card5-list">
+                                                                <p class="flow-card5-list-item" style="background-color: #11B248; color: white;border-radius: 5px;">Things to buy</p>
+                                                                <hr>
+                                                                <p class="flow-card5-list-item">Add Due Date</p>
+                                                                <hr>
+                                                                <p class="flow-card5-list-item">Add Delegate</p>
+                                                                <hr>
+                                                                <p class="flow-card5-list-item">Add Location</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li> <!--  child4  -->
+                                        <a href="#">
+                                            <div class="card flow-card" id="card3">
+                                                <div class="card-body flow-card-body">
+                                                    <span class="flow-card5-span">recruitment</span>
+                                                    <div class="card-btn-container">
+                                                        <div class="custom-circle3" style="background-color: #FD7C42;"></div>
+                                                        <div class="custom-circle3" style="background-color: white;border:1px solid #DEDFE2;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <div class="card flow-card5" id="card1">
+                                                        <div class="card-body">
+                                                            <div class="flow-card-body">
+                                                                <span class="flow-card5-span">Rent a GPS navigator</span>
+                                                                <div class="card-btn-container">
+                                                                    <div class="custom-circle3" style="background-color: white;border:1px solid #DEDFE2;"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="flow-card5-subspan">Maybe consider  an iPhone app
+                                                                    with offline maps?
+                                                            </div>
+                                                            <div class="flow-card5-colorBar">
+                                                                <div class="custom-circle4" style="border: 1px solid #A7A9AD;"><i class="bi bi-check" style="margin: auto;"></i></div>
+                                                                <div class="custom-circle4" style="background-color: #FFBBB7;border: none;"></div>
+                                                                <div class="custom-circle4" style="background-color: #FFDAB1;"></div>
+                                                                <div class="custom-circle4" style="background-color: #FFEEB1;"></div>
+                                                                <div class="custom-circle4" style="background-color: #B3F0BD;"></div>
+                                                                <div class="custom-circle4" style="background-color: #A8D2FF;"></div>
+                                                                <div class="custom-circle4" style="background-color: #EBC1F9;"></div>
+                                                            </div>
+                                                            <div class="flow-card5-list">
+                                                                <p class="flow-card5-list-item" style="background-color: #11B248; color: white;border-radius: 5px;">Things to buy</p>
+                                                                <hr>
+                                                                <p class="flow-card5-list-item">Add Due Date</p>
+                                                                <hr>
+                                                                <p class="flow-card5-list-item">Add Delegate</p>
+                                                                <hr>
+                                                                <p class="flow-card5-list-item">Add Location</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li> <!--  child5  -->
+                                        <a href="#">
+                                            <div class="card flow-card" id="card3">
+                                                <div class="card-body flow-card-body">
+                                                    <span class="flow-card5-span">Team</span>
+                                                    <div class="card-btn-container">
+                                                        <div class="custom-circle3" style="background-color: #FD7C42;"></div>
+                                                        <div class="custom-circle3" style="background-color: white;border:1px solid #DEDFE2;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <div class="card flow-card5" id="card1">
+                                                        <div class="card-body">
+                                                            <div class="flow-card-body">
+                                                                <span class="flow-card5-span">Rent a GPS navigator</span>
+                                                                <div class="card-btn-container">
+                                                                    <div class="custom-circle3" style="background-color: white;border:1px solid #DEDFE2;"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="flow-card5-subspan">Maybe consider  an iPhone app
+                                                                    with offline maps?
+                                                            </div>
+                                                            <div class="flow-card5-colorBar">
+                                                                <div class="custom-circle4" style="border: 1px solid #A7A9AD;"><i class="bi bi-check" style="margin: auto;"></i></div>
+                                                                <div class="custom-circle4" style="background-color: #FFBBB7;border: none;"></div>
+                                                                <div class="custom-circle4" style="background-color: #FFDAB1;"></div>
+                                                                <div class="custom-circle4" style="background-color: #FFEEB1;"></div>
+                                                                <div class="custom-circle4" style="background-color: #B3F0BD;"></div>
+                                                                <div class="custom-circle4" style="background-color: #A8D2FF;"></div>
+                                                                <div class="custom-circle4" style="background-color: #EBC1F9;"></div>
+                                                            </div>
+                                                            <div class="flow-card5-list">
+                                                                <p class="flow-card5-list-item" style="background-color: #11B248; color: white;border-radius: 5px;">Things to buy</p>
+                                                                <hr>
+                                                                <p class="flow-card5-list-item">Add Due Date</p>
+                                                                <hr>
+                                                                <p class="flow-card5-list-item">Add Delegate</p>
+                                                                <hr>
+                                                                <p class="flow-card5-list-item">Add Location</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script
+src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+</script>
+</body>
+</html>

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+
+        <style>
+            body {
+                overflow-x: hidden;
+            }
+            .dashboard-toolbar {
+                width: 100%;
+                padding: 10px 15px;
+                background-color: #0000000f;
+                box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+            }
+            .dashboard-top-toolbar-wrapper {
+                display: flex;
+                justify-content: space-between;
+            }
+            .dashboard-logo {
+                display: flex;
+            }
+            .dashboard-logo-header {
+                margin-left: 10px;
+            }
+            .dashboard-logo-heading {
+                font-family: Poppins;
+                font-size: 17px;
+                font-weight: 300;
+                line-height: 25px;
+                letter-spacing: 0em;
+                text-align: left;
+            }
+            .dashboard-logo-subHeading {
+                font-family: Poppins;
+                font-size: 20px;
+                font-weight: 600;
+                line-height: 30px;
+                letter-spacing: 0em;
+                text-align: left;
+                display: block;
+            }
+            .dashboard-bottom-toolbar-wrapper {
+                margin-top: 22px;
+            }
+            .dashboard-section-divider {
+                margin-top: 15px;
+            }
+            .dashboard-span {
+                font-family: Poppins;
+                font-size: 15px;
+                font-weight: 400;
+                line-height: 25px;
+                letter-spacing: 0em;
+                text-align: left;
+                color: #939393;
+            }
+            .dropdown-label {
+                font-family: Poppins;
+                font-size: 15px;
+                font-weight: 500;
+                line-height: 25px;
+                letter-spacing: 0em;
+                text-align: left;
+                margin-bottom: 10px;
+
+            }
+            .dashboardSectionDropdown1, .dashboardSectionDropdown2, .dashboardSectionDropdown3 {
+                background-color: white;
+                width: 100%;
+            }
+            .dashboard-body-content {
+                padding-top: 20px;
+                background-color: #00000008;
+                color: #717274;
+            }
+            .graph-card {
+                box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+                padding: 8px;
+                background-color: white;
+                margin: 0px auto 12px auto;
+                max-height: 320px;
+                height: 320px;
+            }
+            .chart-view-report {
+                color: #1053D9;
+                text-decoration: none;
+                font-size: 12px;
+                font-weight: 500;
+            }
+            .chart-bottom-span {
+                margin-left: 18%;
+                font-size: 10px;
+                color: #717274;
+            }
+            #guageChart {
+                max-height: 250px;
+                height: 250px;
+                max-width: 300px;
+            }
+            #guageChart2 {
+                max-height: 250px;
+                height: 250px;
+                max-width: 300px;
+                width: 300px;
+            }
+            #doughnutChart {
+                max-height: 250px;
+                height: 250px;
+            }
+            #doughnutChart2 {
+                max-height: 250px;
+                height: 250px;
+            }
+            #myChart {
+                max-height: 250px;
+                height: 250px;
+                max-width: 400px;
+                margin: auto;
+            }
+        </style>
+</head>
+
+<body>
+
+    <div class="dashboard-main-wrapper">
+        <header class="dashboard-toolbar">
+            <div class="dashboard-top-toolbar-wrapper">
+                <div class="dashboard-logo">
+                    <a href="https://www.icloud.com/">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" fill="#6198A0" class="bi bi-square-fill" viewBox="0 0 16 16">
+                            <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2z"/>
+                        </svg>
+                    </a>
+                    <div class="dashboard-logo-header">
+                        <span class="dashboard-logo-heading">Dashboard</span>
+                        <span class="dashboard-logo-subHeading">Open Pipe Gen Dashboard</span>
+                    </div>
+                </div>
+                <div class="dashboard-action-buttons">
+                    <button type="button" class="btn" style="border: none; color:#008FFC; background-color: white;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#008FFC" class="bi bi-plus" viewBox="0 0 16 16">
+                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                        </svg>
+                        Follow
+                    </button>
+                    <button type="button" class="btn"  style="background-color: white;border: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-right-text" viewBox="0 0 16 16">
+                            <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
+                            <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+                        </svg>
+                    </button>
+                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic outlined example">
+                        <button type="button" class="btn" style="color: #008FFC; background-color: white;border: 1px solid #00000014;">Refresh</button>
+                        <button type="button" class="btn" style="color: #008FFC; background-color: white;border: 1px solid #00000014;">Subscribe</button>
+                        <div class="btn-group" role="group">
+                            <button id="dashboardDropdownBtn" type="button" class="btn btn-primary dropdown-toggle dashboardDropdownBtn"
+                                data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000; background-color: white;border: 1px solid #00000014;">
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <li><a class="dropdown-item" href="#">Dropdown link1</a></li>
+                                <li><a class="dropdown-item" href="#">Dropdown link2</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-bottom-toolbar-wrapper">
+                <span class="dashboard-span">As of Sep 22, 2020 11:32 AM     Viewing as Mary McLaughlin</span>
+                <div class="row dashboard-section-divider">
+                    <div class="col-md-4 col-lg-4 col-sm-12">
+                        <label for="dashboardSectionDropdown1" class="dropdown-label">RVP</label>
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle dashboardSectionDropdown1" type="button" id="dashboardSectionDropdown1" data-bs-toggle="dropdown" aria-expanded="false">
+                              All
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dashboardSectionDropdown1">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-12">
+                        <label for="dashboardSectionDropdown2" class="dropdown-label">Segment</label>
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle dashboardSectionDropdown2" type="button" id="dashboardSectionDropdown2" data-bs-toggle="dropdown" aria-expanded="false">
+                              All
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dashboardSectionDropdown2">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-12">
+                        <label for="dashboardSectionDropdown3" class="dropdown-label">Close Date</label>
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle dashboardSectionDropdown3" type="button" id="dashboardSectionDropdown3" data-bs-toggle="dropdown" aria-expanded="false">
+                              All
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dashboardSectionDropdown3">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="row dashboard-body-content" style="height: 100vw;">
+            <div class="col-md-4 col-lg-4 col-sm-12">
+                <div class="container graph-card">
+                    <span class="chart-card-heading">Open Pipe By Stage</span>
+                    <a href="#" class="chart-view-report">View Report</a>
+                </div>
+                <div class="container graph-card">
+                    <span class="chart-card-heading">Open Pipe By Forecast</span>
+                    <canvas id="myChart"></canvas>
+                    <span class="chart-bottom-span">Forecast Category</span>
+                    <a href="#" class="chart-view-report" style="display: block;margin-top: 7%;">View Report</a>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-12">
+                <div class="container graph-card">
+                    <span class="chart-card-heading">AMER ECS - Open Pipe Next Month</span>
+                    <canvas id="guageChart" style="margin: auto;height: 240px;"></canvas>
+                    <a href="#" class="chart-view-report">View Report</a>
+                </div>
+                <div class="container graph-card">
+                    <span class="chart-card-heading">Open Pipe By Source</span>
+                    <canvas id="doughnutChart"></canvas>
+                    <a href="#" class="chart-view-report">View Report</a>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-12">
+                <div class="container graph-card">
+                    <span class="chart-card-heading">AVC</span>
+                    <canvas id="guageChart2" style="margin: auto;"></canvas>
+                    <a href="#" class="chart-view-report">View Report</a>
+                </div>
+                <div class="container graph-card">
+                    <span class="chart-card-heading">Pipe By Product</span>
+                    <canvas id="doughnutChart2"></canvas>
+                    <a href="#" class="chart-view-report">View Report</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+<script>
+// setup 
+const data = {
+  labels: ['Mon', 'Tue', 'Wed'],
+  datasets: [{
+    label: 'Weekly Sales',
+    data: [18, 12, 6],
+    backgroundColor: [
+      'red',
+      'orange',
+      'green',
+    ],
+    needleValue: 200,
+    borderColor: 'white',
+    borderWidth: 2,
+    cutout: '90%',
+    circumference: 180,
+    rotation: 270,
+    borderRadius: 5
+  }]
+};
+
+// block for guageNeedle pointer
+
+const guageNeedle = {
+  id: 'guageNeedle',
+  afterDatasetDraw(chart, args, options) {
+    const { ctx, config, data, chartArea: { top, bottom, left, right, width, height } } = chart;
+
+    ctx.save();
+    const needleValue = data.datasets[0].needleValue;
+    const dataTotal = data.datasets[0].data.reduce((a, b) => a+b, 0);
+    const angle = Math.PI + (1 / dataTotal * needleValue * Math.PI);
+    const cx = width / 2;
+    const cy = chart._metasets[0].data[0].y;
+
+    //needle
+    ctx.translate(cx, cy);
+    ctx.rotate(angle);
+    ctx.beginPath();
+    ctx.moveTo(0, -5); 
+    ctx.lineTo(height - (ctx.canvas.offsetTop + 100) , 0);
+    ctx.lineTo(0, 5);
+    ctx.fillStyle = '#444';
+    ctx.fill();
+
+    //needle point
+    ctx.translate(-cx, -cy);
+    ctx.beginPath();
+    ctx.arc(cx, cy, 5, 0, 10);
+    ctx.fill();
+    ctx.restore();
+
+    //text below needle
+    ctx.font = '25px Helvetica';
+    ctx.fillStyle = '#444';
+    ctx.fillText('USD 36m ', cx, cy + 50);
+    ctx.textAlign = 'center';
+    ctx.restore();
+  }
+};
+
+// config 
+const config = {
+  type: 'doughnut',
+  data,
+  options: {
+    plugins: {
+      legend: {
+        display: false
+      }
+    }
+  },
+  plugins : [guageNeedle]
+};
+
+// render init block
+const guageChart = new Chart(
+  document.getElementById('guageChart'),
+  config
+);
+
+</script>
+<script>
+    // setup 
+    const dataObject = {
+      labels: ['Mon', 'Tue', 'Wed'],
+      datasets: [{
+        label: 'Weekly Sales',
+        data: [8, 4, 20],
+        backgroundColor: [
+          'rgba(255, 26, 104, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+        ],
+        needleValue: 0,
+        borderColor: 'white',
+        borderWidth: 2,
+        cutout: '90%',
+        circumference: 180,
+        rotation: 270,
+        borderRadius: 5
+      }]
+    };
+    
+    // block for guageNeedle pointer - second
+    
+    const guageNeedle2 = {
+      id: 'guageNeedle2',
+      afterDatasetDraw(chart, args, options) {
+        const { ctx, config, data, chartArea: { top, bottom, left, right, width, height } } = chart;
+    
+        ctx.save();
+        const needleValue = dataObject.datasets[0].needleValue;
+        const dataTotal = dataObject.datasets[0].data.reduce((a, b) => a+b, 0);
+        const angle = Math.PI + (1 / dataTotal * needleValue * Math.PI);
+        const cx = width / 2;
+        const cy = chart._metasets[0].data[0].y;
+    
+        //needle
+        ctx.translate(cx, cy);
+        ctx.rotate(angle);
+        ctx.beginPath();
+        ctx.moveTo(0, -5); 
+        ctx.lineTo(height - (ctx.canvas.offsetTop + 100) , 0);
+        ctx.lineTo(0, 5);
+        ctx.fillStyle = '#444';
+        ctx.fill();
+    
+        //needle point
+        ctx.translate(-cx, -cy);
+        ctx.beginPath();
+        ctx.arc(cx, cy, 5, 0, 10);
+        ctx.fill();
+        ctx.restore();
+    
+        //text below needle
+        ctx.font = '25px Helvetica';
+        ctx.fillStyle = '#444';
+        ctx.fillText('USD 36m ' + needleValue + '%', cx, cy + 50);
+        ctx.textAlign = 'center';
+        ctx.restore();
+      }
+    };
+    
+    // config 
+    const config2 = {
+      type: 'doughnut',
+      data,
+      options: {
+        plugins: {
+          legend: {
+            display: false
+          }
+        },
+      },
+      plugins : [guageNeedle2]
+    };
+    
+    // render init block
+    const guageChart2 = new Chart(
+      document.getElementById('guageChart2'),
+      config2
+    );
+    
+    </script>
+
+<script>
+    // Define data for the bar graph
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Omitted', 'Pipeline', 'Best Case', 'Commit'],
+        datasets: [{
+            label: 'Open Pipe by Forecast',
+            data: [2, 8, 16, 10],
+            backgroundColor: [
+                '#3295EB',
+                '#3295EB',
+                '#3295EB'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+//doughnut Chart1 
+
+var ctx = document.getElementById('doughnutChart').getContext('2d');
+const doughnutLabelText1 = {
+        id: 'doughnutLabelText1',
+        beforeDatasetsDraw(chart, args, pluginOptions) {
+            const {ctx, data} = chart;
+            ctx.save();
+            const xCoor = chart.getDatasetMeta(0).data[0].x;
+            const yCoor = chart.getDatasetMeta(0).data[0].y;
+            ctx.font = 'bold 30px sans-serif';
+            ctx.fillStyle = 'black';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('34m', xCoor, yCoor);
+            //ctx.fillText(data.labels[0], xCoor, yCoor);
+        }
+    }
+var doughnutChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['AE', 'BDR', 'Cloud Sales', 'ECS', 'Other'],
+        datasets: [{
+            label: '# of Votes',
+            data: [8, 15, 6, 20, 2],
+            backgroundColor: [
+                '#3295EB',
+                '#76B8F0',
+                '#9D53F2',
+                '#C496F5',
+                '#27AAA2'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Sum of Amount (converted) (USD)'
+            },
+            legend: {
+                position: 'right'
+            },
+        },
+    },
+    plugins: [doughnutLabelText1]
+});
+
+//Doughtnut Chart 2 
+
+var ctx = document.getElementById('doughnutChart2').getContext('2d');
+const doughnutLabelText2 = {
+        id: 'doughnutLabelText2',
+        beforeDatasetsDraw(chart, args, pluginOptions) {
+            const {ctx, data} = chart;
+            ctx.save();
+            const xCoor = chart.getDatasetMeta(0).data[0].x;
+            const yCoor = chart.getDatasetMeta(0).data[0].y;
+            ctx.font = 'bold 30px sans-serif';
+            ctx.fillStyle = 'black';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('54m', xCoor, yCoor);
+        }
+    }
+
+var doughnutChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Adjustment', 'Lighting Platform', 'Platform Data', 'Sales Cloud', 'Service Cloud','Other'],
+        datasets: [{
+            label: '# of Votes',
+            data: [15, 8, 8, 7, 7, 7],
+            backgroundColor: [
+                '#3295EB',
+                '#76B8F0',
+                '#9D53F2',
+                '#C496F5',
+                '#27AAA2',
+                '#4FD0CB'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Sum of Amount (USD)'
+            },
+            legend: {
+                position: 'right'
+            }
+        },
+    
+    },
+    plugins: [doughnutLabelText2]
+});
+
+</script>
+
+
+</body>
+
+</html>

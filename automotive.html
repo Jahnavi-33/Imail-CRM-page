@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automotive</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+         @media (max-width: 767px) {
+            .hidden-xs {
+                display: none !important
+            }
+        }
+
+        @media (min-width: 768px) and (max-width:1023px) {
+            .hidden-sm {
+                display: none !important
+            }
+        }
+
+        @media (min-width: 1024px) and (max-width:1311px) {
+            .hidden-md {
+                display: none !important
+            }
+        }
+
+        @media (min-width: 1312px) {
+            .hidden-lg {
+                display: none !important
+            }
+        }
+        .topTagLineContainer {
+            background-color: #032d60;
+            margin-top: 6%;
+        }
+        @media only screen and (max-width: 768px) {
+            .topTagLineContainer {
+                background-color: #032d60;
+                margin-top: 2%;
+
+            }
+        }
+        .text-snow {
+            color: white;
+        }
+        .text-snow > a {
+            color: white;
+        }
+        .text-left {
+            text-align: left;
+        }
+        .xs-min-height-400 {
+            max-height: 400px;
+        }
+        .topContainerLeft {
+            margin-top: 10%;
+        }
+        .automotive {
+            font-size: 15px;
+            color: rgb(3, 45, 96);
+            font-weight: 500;
+        }
+        .automotive-cloud {
+            font-size: 52px;
+            color: rgb(3, 45, 96);
+            font-weight: 700;
+        }
+        @media only screen and (max-width: 768px) {
+            .automotive-cloud {
+                font-size: 36px;
+                color: rgb(3, 45, 96);
+                font-weight: 700;
+        }
+        }
+        .enhanced-unordered-list {
+            list-style: none;
+            padding-left: 0px;
+        }
+        .watchVideoBtn {
+            background-color: #0b5cab;
+            color: white;
+            font-size: 15px; 
+            padding: 10px 25px;
+            margin-right: 4%;
+        }
+        .watchVideoBtn:hover {
+            background-color: #0d4f91;
+            color: white;
+            font-size: 15px; 
+            padding: 10px 25px;
+            margin-right: 4%;
+        }
+        .tryFreeBtn {
+            font-size: 15px; 
+            padding: 10px 25px;
+            border: 1px solid gray;
+        }
+        .tryFreeBtn:hover {
+            font-size: 15px; 
+            padding: 10px 25px;
+            border: 1px solid gray;
+            background-color: #0d4f91;
+            color: white;
+        }
+        .imageComponent > img {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 40px;
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+        .containerHeaderText {
+            margin-bottom: 20px;
+            margin-top: 60px;
+            font-size: 36px;
+            font-weight: 600;
+            color: rgb(3, 45, 96);
+            text-align: center;
+        }
+        .containerHeaderText-first {
+            margin-bottom: 20px;
+            margin-top: 60px;
+            font-size: 36px;
+            font-weight: 600;
+            color: rgb(3, 45, 96);
+            text-align: center;
+        }
+        @media only screen and (max-width: 768px) {
+            .containerHeaderText {
+                margin-bottom: 20px;
+                margin-top: 18%;
+                font-size: 25px;
+                font-weight: 600;
+                color: rgb(3, 45, 96);
+                text-align: left;
+            }
+        }
+        @media only screen and (max-width: 768px) {
+            .containerHeaderText-first {
+                margin-bottom: 20px;
+                margin-top: 90%;
+                font-size: 25px;
+                font-weight: 600;
+                color: rgb(3, 45, 96);
+                text-align: left;
+            }
+        }
+        .containerSubHeading {
+            font-size: 24px;
+            font-weight: 600;
+            color: rgb(3, 45, 96);
+            margin-top: 40px;
+            margin-bottom: 10px;
+        }
+        .containerdescription {
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+        .cardComponent .feature-card {
+            margin-bottom: 20px;
+            background-color: rgb(244, 244, 244);
+            height: 222px;
+            max-height: 222px;
+        }
+        .cardComponent .caption {
+            padding: 20px 20px 0px 20px;
+        }
+        .feature {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        .captionHeader {
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        .captionDescription {
+            padding-bottom: 20px;
+            font-size: 15px;
+        }
+        .simple-link > span {
+            color: rgb(3, 45, 96);
+            font-size: 14px;
+        }
+        .simple-link {
+            margin-top: 20px;
+        }
+        .text-size-footnote {
+            margin-top: 10px;
+            margin-bottom: 80px;
+            font-size: 11px;
+        }
+        .edition-head {
+            display: block;
+            font-size: 25px;
+            height: 30px;
+            font-weight: 300;
+        }
+        @media only screen and (max-width: 768px) {
+            .edition-head {
+                display: block;
+                font-size: 18px;
+                height: 30px;
+                font-weight: 400;
+                margin-bottom: 4%;
+                margin-top: 6%;
+            }
+        }
+        @media only screen and (max-width: 768px) {
+            .container-fluid {
+                padding: 0px;
+            }
+        }
+        .edition-container-card {
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+        }
+        .price-body-description {
+            padding: 20px;
+            font-size: 15px;
+            color: rgb(3, 45, 96);
+        }
+        .currency-symbol-left {
+            font-size: 30px;
+            color: rgb(3, 45, 96);
+            vertical-align: top;
+            line-height: 57px;
+        }
+        .currency-number {
+            font-size: 50px;
+            color: rgb(3, 45, 96);
+        }
+        .price-description, .billing-frequency {
+            font-size: 11px;
+            color: rgb(3, 45, 96);
+            display: block;
+        }
+        .pricingCTA-contactUs {
+            background-color: rgb(9, 78, 145);
+            color: white;
+            font-size: 15px; 
+            padding: 10px 25px;
+        }
+        .automation-leftnav-heading {
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
+
+        .automation-leftnav-heading .automation-header-text {
+            font-size: 26px;
+            font-weight: 300;
+        }
+        .automation-leftContent {
+            background-color: whitesmoke;
+            padding-top: 6%;
+        }
+        .automation-leftnav-padding {
+            padding-left: 15px;
+        }
+        .automation-rightContent {
+            padding-top: 2%;
+            padding-left: 8%;
+        }
+        .automation-page-list {
+            list-style: none;
+            padding-left: 0px;
+        }
+        .automation-dynamic-page-list-item {
+            padding: 15px 0px;
+            color: rgb(11, 92, 171);
+        }
+        
+        .topNavigationBar-header {
+            padding: 10px 0px;
+            top: 0;
+            position: fixed;
+            background-color: white;
+            width: 100%;
+        }
+        .topnav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0px 40px;
+        }
+        @media only screen and (max-width: 768px) {
+            .topnav-wrapper {
+                display: flex;
+                justify-content: space-between;
+                margin: 0px 10px;
+        }
+        }
+        .topnav-left-wrapper {
+            display: flex;
+        }
+        .topnav-nav-list {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 3%;
+            list-style: none;
+            padding-left: 0;
+        }
+        .topnav-nav-list-items {
+            font-size: 16px;
+            font-weight: 600;
+            color: rgb(3, 45, 96);
+            margin: 0px 10px;
+            cursor: pointer;
+        }
+        .topnav-right-wrapper {
+            display: flex;
+        }
+        @media only screen and (max-width: 768px) {
+            .topnav-right-wrapper {
+                display: flex;
+                margin-right: 1%;
+            }
+        }
+        .contactUS-utility-nav {
+            text-align: center;
+        }
+        .contactUS-utility-nav-link {
+            text-decoration: underline;
+            color: rgb(3, 45, 96);
+            font-size: 14px;
+            font-weight: 400;
+        }
+        .contactUS-utility-nav-span {
+            color: rgb(3, 45, 96);
+            font-size: 14px;
+            font-weight: 400;
+            display: block;
+        }
+        .utility-nav-icons {
+            margin: auto;
+            display: flex;
+        }
+        .utility-nav-icons > i {
+            margin: 0px 10px;
+            cursor: pointer;
+            color: rgb(3, 45, 96);
+        }
+        .utility-nav-login-div {
+            cursor: pointer;
+            color: rgb(3, 45, 96);
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .page-footer {
+            background-color: rgb(3, 46, 97);
+            padding: 15px 0px;
+            text-align: center;
+        }
+        .page-footer_content {
+            display: flex;
+            justify-content: center;
+        }
+        @media only screen and (max-width: 768px){
+            .page-footer_content {
+                display: block;
+                justify-content: center;
+            }
+        }
+        .page-footer-btnCTA {
+            background-color: transparent;
+            color: white;
+            font-size: 16px; 
+            padding: 12px 30px; 
+            border: 1px solid white;
+            margin: auto 5px;
+        }
+        @media only screen and (max-width: 768px) {
+            .page-footer-btnCTA {
+                background-color: transparent;
+                color: white;
+                font-size: 16px; 
+                padding: 12px 30px; 
+                border: 1px solid white;
+                margin-bottom: 2%;
+            }
+        } 
+        .page-footer-copyRightCTA {
+            margin-left: 3%;
+        }
+        @media only screen and (max-width: 768px) {
+            .page-footer-copyRightCTA {
+                margin-left: 0%;
+                padding: 0px 10px;
+            }
+        }
+        .page-footer-legal {
+            color: white;
+            font-size: 11px;
+        }
+        .page-footer-legal > a {
+            color: rgb(0, 161, 224);
+            font-size: 11px;
+            text-decoration: underline;
+        }
+        .page-footer_links_list {
+            list-style: none;
+            display: flex;
+            padding-left: 0px;
+            margin-bottom: 0px;
+        }
+        @media only screen and (max-width: 768px) {
+            .page-footer_links_list {
+                list-style: none;
+                display: block;
+                padding-left: 0px;
+                margin-bottom: 0px;
+            }
+        }
+        .page-footer_links_item {
+            color: rgb(0, 161, 224);
+            font-size: 11px;
+            text-decoration: underline;
+            margin: 0px 10px;
+        }
+        @media only screen and (max-width: 768px) {
+            .page-footer_links_item {
+                color: rgb(0, 161, 224);
+                font-size: 11px;
+                text-decoration: underline;
+                display: inline-block;
+            }
+        }
+        .topnav-hamber-menu {
+            margin: auto 8px auto 0px;
+            font-size: 22px;
+        }
+        .navigationSideMenu {
+            background-color: white;
+            width: 100%;
+            padding: 10px;
+            top: 10%;
+            left: 0;
+            display: none;
+            z-index: 1000;
+            position: fixed;
+        }
+        .navigationSideMenu-nav-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .navigationSideMenu-nav-list-items {
+            font-size: 24px;
+            line-height: 32px;
+            color: rgb(3, 45, 96);
+            font-weight: 700;
+            margin: 20px 15px;
+            cursor: pointer;
+        }
+        .automation-leftContent-dropdown {
+            padding: 0px;
+        }
+        .automation-top-dropdown {
+            margin-top: 20%;
+            margin-left: 3%;
+            margin-right: 3%;
+        }
+        .automation-top-header-text {
+            font-size: 18px;
+            font-weight: 400;
+        }
+        .automation-topnav-heading {
+            margin: 10px 0px;
+            text-align: center;
+        }
+        .automation-dropdown-btn {
+            width: 100%;
+            max-width: 100%;
+            background-color: white;
+            color: black;
+            border-radius: 0px;
+        }
+        .dropdown-menu {
+            width: 100%;
+            max-width: 100%;
+        }
+        .dropdown-item:hover, .dropdown-item:focus {
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="topNavigationBar-header hidden-xs hidden-sm">
+        <div class="topnav-wrapper">
+            <div class="topnav-left-wrapper">
+                <div class="topnav-header-logo">
+                    <img class="topnav-header-logo-img" src="https://a.sfdcstatic.com/shared/images/c360-nav/mobile_logo.png" alt="Logo">
+                </div>
+                <ul class="topnav-nav-list">
+                    <li class="topnav-nav-list-items">Products</li>
+                    <li class="topnav-nav-list-items">Industries</li>
+                    <li class="topnav-nav-list-items">Customers</li>
+                    <li class="topnav-nav-list-items">Learning</li>
+                    <li class="topnav-nav-list-items">Support</li>
+                    <li class="topnav-nav-list-items">Company</li>
+                </ul>
+            </div>
+            <div class="topnav-right-wrapper">
+                <div class="contactUS-utility-nav">
+                    <a href="#" class="contactUS-utility-nav-link">Contact Us</a>
+                    <span class="contactUS-utility-nav-span">1800-420-7332</span>
+                </div>
+                <div class="utility-nav-icons">
+                    <i class="bi bi-search"></i>
+                    <i class="bi bi-globe"></i>
+                    <div class="utility-nav-login-div">
+                        <i class="bi bi-person-fill"></i>
+                        <span>Login</span>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-lg" style="background-color: #278806;color: white;font-size: 14px; padding: 8px 20px; margin-left: 15px;">TRY FOR FREE</button>
+            </div>
+        </div>
+    </header>
+    <header class="topNavigationBar-header hidden-md hidden-lg">
+        <div class="topnav-wrapper">
+            <div class="topnav-left-wrapper">
+                <i class="bi bi-list topnav-hamber-menu" onclick="showSideMenu()"></i>
+                <div class="topnav-header-logo">
+                    <img class="topnav-header-logo-img" src="https://a.sfdcstatic.com/shared/images/c360-nav/mobile_logo.png" alt="Logo">
+                </div>
+            </div>
+            <div class="topnav-right-wrapper">
+                <div class="utility-nav-icons">
+                    <i class="bi bi-search"></i>
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <button type="button" class="btn btn-lg" style="background-color: #278806;color: white;font-size: 14px; padding: 8px 20px;">TRY FOR FREE</button>
+            </div>
+        </div>
+    </header>
+    <div class="navigationSideMenu" id="navigationSideMenu">
+        <ul class="navigationSideMenu-nav-list">
+            <li class="navigationSideMenu-nav-list-items">Products</li>
+            <li class="navigationSideMenu-nav-list-items">Industries</li>
+            <li class="navigationSideMenu-nav-list-items">Customers</li>
+            <li class="navigationSideMenu-nav-list-items">Learning</li>
+            <li class="navigationSideMenu-nav-list-items">Support</li>
+            <li class="navigationSideMenu-nav-list-items">Company</li>
+        </ul>
+    </div>
+    <div class="columnContainer automation-top-dropdown hidden-md hidden-lg">
+        <div class="container">
+            <div class="row columns-wrapper">
+                <div class="text-left col-xs-12 col-sm-12 col-md-2 col-lg-2 automation-leftContent-dropdown">
+                    <div class="automation-topnav-heading">
+                        <span class="automation-top-header-text"> Automotive </span>
+                    </div>
+                    <div class="row columns-wrapper">
+                        <div class="text-left col-xs-12 col-sm-12 top-dropdown">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle automation-dropdown-btn" type="button" id="automation-dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Products
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="automation-dropdownMenuButton1" id="automation-dynamicDropdownMenu">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="columnContainer topTagLineContainer">
+        <div class=" columns-wrapper bg-stratus">
+            <div class="container">
+                <div class="row columns-wrapper ">
+                    <!-- <div class="col text-left col-xs-0 col-sm-0 col-md-3 col-lg-3"></div> -->
+                    <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="columnContainer">
+                            <div class="row columns-wrapper">
+                                <div class="col  text-left col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div style="text-align: center;margin: 20px 0px;">
+                                        <b>
+                                            <span class="text-snow">
+                                                Salesforce Launches Next Generation of Einstein AI Capabilities to Power Proactive Service for the Automotive Industry. &nbsp;
+                                                <a href="https://www.salesforce.com/news/press-releases/2023/09/12/ai-einstein-news-dreamforce" target="_blank">LEARN MORE</a>
+                                                &nbsp;&gt;
+                                            </span>
+                                        </b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="columnContainer bodyContainer">
+        <div class="container">
+            <div class="row columns-wrapper">
+                <div class="text-left col-xs-12 col-sm-12 col-md-2 col-lg-2 automation-leftContent hidden-xs hidden-sm">
+                    <div class="automation-leftnav-header">
+                        <div class="automation-leftnav-heading">
+                            <span class="automation-header-text"> Automotive </span>
+                        </div>
+                    </div>
+                    <div class="automation-leftnav-body automation-leftnav-padding">
+                        <div class="automation-leftnav-page-list">
+                            <ul class="automation-page-list automation-page-list-level-1" id="automation-dynamic-page-list" style="padding-left: 0px;">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-left col-xs-12 col-sm-12 col-md-10 col-lg-10 automation-rightContent">
+                    <div class="columnContainer">
+                        <div class="columns-wrapper container-fluid column-container-component">
+                            <div class="row columns-wrapper xs-min-height-400">
+                                <div class=" text-left col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="labelLargeComponent headingComponent topContainerLeft">
+                                        <span id="automotive" class="automotive">AUTOMOTIVE</span>
+                                    </div>
+                                    <div class="headingComponent">
+                                        <span id="automotive-cloud" class="automotive-cloud">Automotive Cloud </span>
+                                    </div>
+                                    <div class="bodyCopyComponent">
+                                        <div style="margin-bottom: 10px;">
+                                            <p>Drive unified customer, vehicle, and retail experiences.</p>
+                                            <ul class="enhanced-unordered-list">
+                                                <li class="enhanced-unordered-list-item">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                                                    </svg>
+                                                    Enrich the Driver 360
+                                                </li>
+                                                <li class="enhanced-unordered-list-item">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                                                    </svg>
+                                                    Automate processes
+                                                </li>
+                                                <li class="enhanced-unordered-list-item">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                                                    </svg>
+                                                    Get intelligent insights
+                                                </li>
+                                                <li class="enhanced-unordered-list-item">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                                                    </svg>
+                                                    Power real-time experiences
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="buttonCTAComponent" style="display: flex;">
+                                        <button type="button" class="btn btn-lg watchVideoBtn">
+                                            WATCH THE VIDEO
+                                        </button>
+                                        <button type="button" class="btn btn-lg tryFreeBtn">
+                                            TRY FOR FREE
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="text-left col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="columnContainer">
+                                        <div class="columns-wrapper ontainer-fluid column-container-component">
+                                            <div class="row columns-wrapper">
+                                                <div class="col  text-left col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <div class="imageComponent">
+                                                        <img class="image-link" src="https://www.salesforce.com/content/dam/web/en_us/www/images/industries/automotive/auto-cloud-2022-hero_LG.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columnContainer" style="margin-top: 10%;">
+                        <div class="columns-wrapper column-container-component">
+                            <div class="container">
+                                <div class="row columns-wrapper">
+                                    <div class="col  text-left col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <div class="headingComponent">
+                                            <p class="containerHeaderText-first">
+                                                Turn customer insights into seamless experiences with Automotive Cloud.
+                                            </p>
+                                        </div>
+                                        <div class="columnContainer">
+                                            <div class="columns-wrapper container-fluid column-container-component">
+                                                <div class="row columns-wrapper">
+                                                    <div class="text-left col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                        <div class="headingComponent text-left">
+                                                            <p class="containerSubHeading">Enrich the Driver 360.</p>
+                                                        </div>
+                                                        <div class="bodyCopyComponent">
+                                                            <p class="containerdescription text-left">
+                                                                Dive into a data-rich view of your customers, households, vehicles, and fleets to make real-time, meaningful engagements.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-left col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                        <div class="headingComponent text-left">
+                                                            <p class="containerSubHeading">Automate processes.</p>
+                                                        </div>
+                                                        <div class="bodyCopyComponent">
+                                                            <p class="containerdescription text-left">
+                                                                Simplify enterprise integrations and build branded, integrated dealer and customer experiences without code with Flow for Automotive.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row columns-wrapper">
+                                                    <div class="text-left col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                        <div class="headingComponent text-left">
+                                                            <p class="containerSubHeading">Get intelligent insights.</p>
+                                                        </div>
+                                                        <div class="bodyCopyComponent">
+                                                            <p class="containerdescription text-left">
+                                                                Leverage AI intelligence to engage efficiently at every touchpoint and empower customer-facing teams.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-left col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                        <div class="headingComponent text-left">
+                                                            <p class="containerSubHeading">Power real-time experiences.</p>
+                                                        </div>
+                                                        <div class="bodyCopyComponent">
+                                                            <p class="containerdescription text-left">
+                                                                Sell, service, and delight across customer and vehicle lifecycles with a solution designed for the automotive industry.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columnContainer" style="margin-top: 8%;">
+                        <div class="columns-wrapper column-container-component">
+                            <div class="container">
+                                <div class="row columns-wrapper">
+                                    <div class="col  text-left col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <div class="headingComponent">
+                                            <p class="containerHeaderText">
+                                                Here’s all you need to drive customer engagement.
+                                            </p>
+                                        </div>
+                                        <div class="columnContainer" style="margin-top: 20px;">
+                                            <div class="columns-wrapper container-fluid column-container-component">
+                                                <div class="row columns-wrapper">
+                                                    <div class=" text-left col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                                        <div class="cardComponent">
+                                                            <div class="thumbnail feature-card ">
+                                                                <div class="thumbnail-content ">
+                                                                    <div class="caption">
+                                                                        <div class="labelSmallComponent">
+                                                                            <p class="feature">FEATURE</p>
+                                                                        </div>
+                                                                        <div class="headingComponent">
+                                                                            <p class="captionHeader">Driver Console</p>
+                                                                        </div>
+                                                                        <div class="bodyCopyComponent">
+                                                                            <p class="captionDescription">
+                                                                                Get a complete view of customer interactions and set up customized alerts for your teams.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class=" text-left col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                                        <div class="cardComponent">
+                                                            <div class="thumbnail feature-card ">
+                                                                <div class="thumbnail-content ">
+                                                                    <div class="caption">
+                                                                        <div class="labelSmallComponent">
+                                                                            <p class="feature">FEATURE</p>
+                                                                        </div>
+                                                                        <div class="headingComponent">
+                                                                            <p class="captionHeader">Vehicle Console</p>
+                                                                        </div>
+                                                                        <div class="bodyCopyComponent">
+                                                                            <p class="captionDescription">
+                                                                                Quickly access critical information, like vehicle details, warranties, or delivery reports.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-left col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                                        <div class="cardComponent">
+                                                            <div class="thumbnail feature-card ">
+                                                                <div class="thumbnail-content ">
+                                                                    <div class="caption">
+                                                                        <div class="labelSmallComponent">
+                                                                            <p class="feature">FEATURE</p>
+                                                                        </div>
+                                                                        <div class="headingComponent">
+                                                                            <p class="captionHeader">Household Management</p>
+                                                                        </div>
+                                                                        <div class="bodyCopyComponent">
+                                                                            <p class="captionDescription">
+                                                                                See a household’s complete driver and vehicle history to personalize support, offers, and sales.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="columnContainer" style="margin-top: 20px;">
+                                            <div class="columns-wrapper container-fluid column-container-component">
+                                                <div class="row columns-wrapper">
+                                                    <div class="text-left col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                                        <div class="cardComponent">
+                                                            <div class="thumbnail feature-card ">
+                                                                <div class="thumbnail-content ">
+                                                                    <div class="caption">
+                                                                        <div class="labelSmallComponent">
+                                                                            <p class="feature">FEATURE</p>
+                                                                        </div>
+                                                                        <div class="headingComponent">
+                                                                            <p class="captionHeader">Automotive Lead Management</p>
+                                                                        </div>
+                                                                        <div class="bodyCopyComponent">
+                                                                            <p class="captionDescription">
+                                                                                Route high-value leads directly to the individual’s preferred dealership.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-left col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                                        <div class="cardComponent">
+                                                            <div class="thumbnail feature-card ">
+                                                                <div class="thumbnail-content ">
+                                                                    <div class="caption">
+                                                                        <div class="labelSmallComponent">
+                                                                            <p class="feature">FEATURE</p>
+                                                                        </div>
+                                                                        <div class="headingComponent">
+                                                                            <p class="captionHeader">Partner Performance Management</p>
+                                                                        </div>
+                                                                        <div class="bodyCopyComponent">
+                                                                            <p class="captionDescription">
+                                                                                Easily track how retail partners are performing, and collaborate on site visits, incentives, and more.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-left col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                                        <div class="cardComponent">
+                                                            <div class="thumbnail feature-card ">
+                                                                <div class="thumbnail-content ">
+                                                                    <div class="caption">
+                                                                        <div class="labelSmallComponent">
+                                                                            <p class="feature">FEATURE</p>
+                                                                        </div>
+                                                                        <div class="headingComponent">
+                                                                            <p class="captionHeader">Automotive Data Foundation</p>
+                                                                        </div>
+                                                                        <div class="bodyCopyComponent">
+                                                                            <p class="captionDescription">
+                                                                                Ensure intelligent data protection, global regulatory compliance, and flexible data sharing.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columnContainer" style="margin-top: 5%;">
+                        <div class="columns-wrapper column-container-component">
+                            <div class="container">
+                                <div class="row columns-wrapper">
+                                    <div class="col  text-left col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <div class="headingComponent">
+                                            <p class="containerHeaderText">
+                                                Automotive Cloud Pricing
+                                            </p>
+                                        </div>
+                                        <div class="columnContainer">
+                                            <div class="columns-wrapper container-fluid column-container-component">
+                                                <div class="row columns-wrapper">
+                                                    <div class="col  text-left col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="pricingComponent">
+                                                            <div class="columns-wrapper container-fluid pricing-container vertical-layout">
+                                                                <div class="row columns-wrapper">
+                                                                    <div class="text-center col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                                                        <h3 aria-hidden="true" class="text-left edition-head edition-head-1">
+                                                                            Automotive Cloud Pricing - Enterprise
+                                                                        </h3>
+
+                                                                        <div class="edition-container-card no-detail" style="height: 302px;">
+                                                                            <div class="price-body-description text-left" style="height: 83px;">
+                                                                                An out-of-the-box automotive CRM, built on Sales Cloud and Service Cloud.
+                                                                            </div>
+                                                                            <div class="pricing-number" style="height: 71px;">
+                                                                                <span class="currency-symbol-left">$</span>
+                                                                                <span class="currency-number ">325</span>  
+                                                                            </div>
+                                                                            <div class="pricing-tagline" style="height: 50px;">
+                                                                                <span class="price-description">USD/user/month*</span>
+                                                                                <span class="billing-frequency">(billed annually)</span>
+                                                                            </div>
+                                                                            <div class="pricing_cta_1 buttonCTAComponent parbase">
+                                                                                <button type="button" class="btn btn-lg pricingCTA-contactUs">CONTACT US</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="text-center col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                                                        <h3 aria-hidden="true" class="text-left edition-head edition-head-2">
+                                                                            Automotive Cloud Pricing - Unlimited
+                                                                        </h3>
+
+                                                                        <div class="edition-container-card no-detail" style="height: 302px;">
+                                                                            <div class="price-body-description text-left" style="height: 83px;">
+                                                                                Unlimited power and support for automotive, built on Sales Cloud and Service Cloud.
+                                                                            </div>
+                                                                            <div class="pricing-number" style="height: 71px;">
+                                                                                <span class="currency-symbol-left">$</span>
+                                                                                <span class="currency-number ">500</span>  
+                                                                            </div>
+                                                                            <div class="pricing-tagline" style="height: 50px;">
+                                                                                <span class="price-description">USD/user/month*</span>
+                                                                                <span class="billing-frequency">(billed annually)</span>
+                                                                            </div>
+                                                                            <div class="pricing_cta_1 buttonCTAComponent parbase">
+                                                                                <button type="button" class="btn btn-lg pricingCTA-contactUs">CONTACT US</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="buttonCTAComponent">
+                                                            <div class="buttonCTAItemComponent text-left ">
+                                                                <a class="btn btn-lg simple-link "  href="#">
+                                                                    <span>                                                                      
+                                                                        VIEW DETAILED PRICING
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="rgb(3, 45, 96)" style="margin-bottom: 3px" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                                                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                                                                        </svg>
+                                                                    </span>                                                              
+                                                                </a>                                                           
+                                                            </div>                                                           
+                                                        </div>
+                                                        <div class="bodyCopyComponent">
+                                                            <div class="text-size-footnote line-height-default">
+                                                                * This edition requires an annual contract.
+                                                                <br>
+                                                                This page is provided for information purposes only and subject to change. Contact a sales representative 
+                                                                for detailed pricing information.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="page-footer_content">
+                    <button type="button" class="btn btn-lg page-footer-btnCTA">
+                        <i class="bi bi-globe"></i>
+                        WORLDWIDE
+                    </button>
+                    <div class="page-footer-copyRightCTA">
+                        <p class="page-footer-legal">© Copyright&nbsp;2024 Salesforce, Inc.&nbsp;
+                            <a href="https://www.salesforce.com/company/legal/intellectual.jsp">All rights reserved</a>
+                            . Various trademarks held by their respective owners.
+                        </p>
+                        <div class="page-footer-links">
+                            <ul class="page-footer_links_list">
+                                <li class="page-footer_links_item">
+        
+                                    <a class="page-footer_link " href="https://www.salesforce.com/company/legal/">
+                                        Legal
+                                    </a>
+                                </li>
+                                <li class="page-footer_links_item">
+        
+                                    <a class="page-footer_link "
+                                        href="https://www.salesforce.com/company/legal/sfdc-website-terms-of-service.jsp">
+                                        Terms of Service
+                                    </a>
+                                </li>
+                                <li class="page-footer_links_item">
+        
+                                    <a class="page-footer_link " href="https://www.salesforce.com/in/company/privacy/">
+                                        Privacy
+                                    </a>
+                                </li>
+                                <li class="page-footer_links_item">
+        
+                                    <a class="page-footer_link " href="https://www.salesforce.com/company/disclosure/">
+                                        Responsible Disclosure
+                                    </a>
+                                </li>
+
+                                <li class="page-footer_links_item">
+        
+                                    <a class="page-footer_link "
+                                        href="https://www.salesforce.com/in/company/contact-us/?d=70130000000EgLr"
+                                        target="_blank">
+                                        Contact
+                                    </a>
+                                </li>
+                                <li class="page-footer_links_item">
+        
+                                    <a class="page-footer_link optanon-toggle-display" href="#" data-ignore-geolocation="true">
+                                        Cookie Preferences
+                                    </a>
+                                </li>
+                                <li class="page-footer_links_item">
+        
+                                    <a class="page-footer_link " href="/form/other/privacy-request/?d=cta-footer-1"
+                                        target="_blank">Your
+                                        Privacy Choices
+                                    </a>
+                                </li>
+        
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+
+<script>
+    function showSideMenu() {
+      var sideMenuDiv = document.getElementById("navigationSideMenu");
+      if (sideMenuDiv.style.display === "block") {
+        sideMenuDiv.style.display = "none";
+      } else {
+        sideMenuDiv.style.display = "block";
+      }
+    }
+</script>
+<script>
+
+    var sideNavData = ["Overview", "Products", "OEMs", "Dealers", "Captive Finance", "Customer Stories", "FAQ"];
+
+    function populateAutomationSideNavList() {
+            var automationDynamicList = document.getElementById("automation-dynamic-page-list");
+
+            sideNavData.forEach(function (item) {
+                var automationlist = document.createElement("li");
+                automationlist.textContent = item;
+                automationlist.classList.add("automation-dynamic-page-list-item");
+                automationlist.addEventListener("click", function () {
+                    updateAutomationBodyContent(this);
+                });
+                automationDynamicList.appendChild(automationlist);
+            });
+        }
+        // Call the function to populate the side menu list
+        populateAutomationSideNavList();
+
+        function  updateAutomationBodyContent(inputFromList) {
+            //add logic to update the price tile data
+            console.log("Code to update body content on click of <li> in left nav list..");
+        }
+
+    function updateAutomationButtonText(element) {
+        // Get the text content of the clicked dropdown item
+        let newText = element.textContent.trim();
+        
+        // Update the text of the dropdown button
+        document.getElementById('automation-dropdownMenuButton1').textContent = newText;
+    }
+    window.onload = function() {
+        let automationDropdownMenu = document.getElementById('automation-dynamicDropdownMenu');
+
+        // Populate the dropdown dynamically
+        sideNavData.forEach(item => {
+            let automationlistItem = document.createElement('li');
+            let automationlink = document.createElement('a');
+            automationlink.classList.add('dropdown-item');
+            automationlink.href = '#';
+            automationlink.textContent = item;
+            automationlink.onclick = function() {
+                updateAutomationButtonText(automationlink);
+            };
+            automationlistItem.appendChild(automationlink);
+            automationDropdownMenu.appendChild(automationlistItem);
+        });
+
+        // Set the first item in the dropdown as the default option for the dropdown button
+        let defaultText = sideNavData[0];
+        document.getElementById('automation-dropdownMenuButton1').textContent = defaultText;
+    };
+</script>
+
+</body>
+
+</html>

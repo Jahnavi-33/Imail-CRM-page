@@ -1,0 +1,2163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>instagram</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+    <style>
+        body {
+            font-family: Inter;
+        }
+
+        .instaHeader {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 20px 0px 20px;
+            background-color: white;
+            top: 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .userIcon {
+            background-color: rgb(229, 231, 235);
+            border-radius: 30px;
+            padding: 5px 12px 8px 12px;
+        }
+
+        .searchField {
+            width: 40%;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .searchField {
+                width: 60%;
+            }
+        }
+
+        .searchFieldTextInput {
+            position: relative;
+            font-size: 15px;
+            padding: 2%;
+            width: 100%;
+            text-indent: 25px;
+            background-color: rgb(240 240 240);
+            border: none;
+            border-radius: 10px;
+        }
+
+        .magnifying-glass {
+            position: absolute;
+            z-index: 1;
+            margin-left: 10px;
+            margin-top: 2.8%;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .magnifying-glass {
+                position: absolute;
+                z-index: 1;
+                margin-left: 10px;
+                margin-top: 3.1%;
+            }
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+            .magnifying-glass {
+                position: absolute;
+                z-index: 1;
+                margin-left: 10px;
+                margin-top: 2.8%;
+            }
+        }
+
+        #searchFieldText::placeholder {
+            color: gray;
+        }
+
+        .form {
+            position: relative;
+        }
+
+        .instaBodyContent {
+            margin: 8% 0 0 0;
+            border: 1px solid #e5e7eb;
+            padding: 0px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .instaBodyContent {
+                margin: 16% 0 0 0;
+                border: 1px solid #e5e7eb;
+                padding: 0px;
+            }
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+            .instaBodyContent {
+                margin: 10% 0 0 0;
+                border: 1px solid #e5e7eb;
+                padding: 0px;
+            }
+        }
+
+        .profile-section {
+            display: flex;
+            margin: 5% 10%;
+        }
+
+        .profileImg {
+            border: 1px solid black;
+            border-radius: 50%;
+            height: 50%;
+            width: 5%;
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .profileImg {
+                border: 1px solid black;
+                border-radius: 50%;
+                height: 50%;
+                width: 20%;
+                text-align: center;
+                margin-right: 20px;
+            }
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+            .profileImg {
+                border: 1px solid black;
+                border-radius: 50%;
+                height: 50%;
+                width: 10%;
+                text-align: center;
+                margin-right: 20px;
+            }
+        }
+
+        .profileDetails-name {
+            font-family: Inter;
+            color: rgb(90, 90, 90);
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+
+        .profileDetails-text {
+            font-family: Inter;
+            color: rgb(90, 90, 90);
+            font-size: 12px;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+
+        .mainContent-tagline-p {
+            font-size: 18px;
+            line-height: 28px;
+            margin-bottom: 0px;
+        }
+
+        .mainContent-tagline {
+            margin-bottom: 2%;
+        }
+
+        .mainContent-tagline-span {
+            color: rgb(90, 90, 90);
+            font-size: 18px;
+            line-height: 28px;
+            cursor: pointer;
+        }
+
+        .postContainer {
+            background-color: rgb(236, 233, 233);
+            height: 600px;
+            width: 100%;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .postContainer {
+                background-color: rgb(236, 233, 233);
+                height: 350px;
+                width: 100%;
+            }
+        }
+
+        .bottomLine-p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+
+        .bottomLine-span {
+            font-size: 16px;
+            color: rgb(158, 157, 157);
+            display: block;
+        }
+
+        .Learn-more {
+            color: rgb(0, 117, 250);
+            font-size: 20px;
+        }
+
+        .post-like-comment-section {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .like-icon {
+            display: flex;
+        }
+
+        .like-icon>p {
+            margin: 8px 0px 0px 5px;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .comment {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .comment {
+                font-size: 18px;
+                margin-bottom: 10px;
+                margin-top: 1%;
+            }
+
+            .like-icon>p {
+                margin: 7px 0px 0px 5px;
+                font-size: 18px;
+            }
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+            .comment {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+            .like-icon>p {
+                margin: 8px 0px 0px 5px;
+                font-size: 18px;
+            }
+        }
+
+        .post-bottom-icons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footerTab {
+            display: flex;
+            justify-content: space-evenly;
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+            background-color: white;
+        }
+
+        .postBottomContainer {
+            margin-bottom: 6%;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .postBottomContainer {
+                margin-bottom: 20%;
+            }
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+            .postBottomContainer {
+                margin-bottom: 2%;
+            }
+        }
+
+        .img-wrapper>img {
+            width: -webkit-fill-available;
+            height: -webkit-fill-available;
+        }
+
+        .post-like-comment-section {
+            padding: 10px 16px;
+        }
+
+        .initial-content {
+            overflow: hidden;
+            position: relative;
+            max-height: 3.4em;
+        }
+
+        .show-content {
+            max-height: none;
+        }
+
+        .modal-content {
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .profile-image img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        textarea {
+            width: 100%;
+            resize: vertical;
+            margin-bottom: 0px;
+            border: none;
+            margin-left: 2%;
+        }
+
+        .comment-button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 5px;
+        }
+
+        .left-comment-CTA {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2%;
+        }
+
+        .left-comment-CTA i {
+            margin-right: 10px;
+        }
+
+        button#postComment {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-left: auto;
+            padding: 5px;
+            font-size: 18px;
+            color: rgb(158, 157, 157);
+        }
+
+        .closeComment {
+            margin-bottom: 2%;
+        }
+
+        hr:not([size]) {
+            height: 0.025px !important;
+        }
+
+        .track {
+            background: #ededed;
+            display: flex;
+            border-radius: 0.5rem;
+            padding: 0.125rem;
+            flex-direction: row-reverse;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+            box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
+            transition: all .3s cubic-bezier(0, 0, .5, 1);
+        }
+
+        .control {
+            display: block;
+            cursor: pointer;
+        }
+
+        .control__input {
+            opacity: 0;
+            width: 1px;
+            height: 0px;
+            position: absolute;
+        }
+
+        .control__input:checked~.control__indicator {
+            background: #fcf9f9;
+            color: #000;
+            border-radius: 0.55rem;
+            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 17%);
+        }
+
+        .control__indicator {
+            padding: 0.5rem 4.5rem;
+            border-radius: 0.25rem;
+            transition: all 0.1s ease-out;
+            will-change: box-shadow, background-color;
+            box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
+            line-height: 1;
+            background: #ededed;
+            font-weight: 500;
+            font-family: SF Pro Display;
+            color: #333;
+            letter-spacing: -0.25px;
+            font-size: 16px;
+        }
+
+        .list-group-item {
+            position: relative;
+            display: block;
+            padding: 0.5rem 0rem !important;
+            color: #212529;
+            text-decoration: none;
+            border: 1px solid rgba(0, 0, 0, .125);
+            cursor: pointer;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+
+        .notification img {
+            width: 40px;
+            box-shadow: 1px 1px 1px 1px #ddd;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            height: 40px;
+        }
+
+        .icon {
+            width: 40px;
+            box-shadow: 1px 1px 1px 1px #ddd;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            color: #787171;
+            font-size: 25px;
+            position: relative;
+        }
+
+
+        .icon span {
+            font-size: 8px;
+            position: absolute;
+            background: #dc3545;
+            width: 12px;
+            height: 12px;
+            border-radius: 15px;
+            right: -1px;
+            top: -4px;
+            line-height: 12px;
+            color: #fff;
+        }
+        .personName {
+            font-size: x-large;
+            margin-top: 15px;
+        }
+        @media only screen and (max-width: 768px)  {
+            .bi-mic {
+                margin-top: 10%;
+            }
+        }
+        @media only screen and (max-width: 768px)  {
+            .network-mic-info-icon {
+                display: flex;
+            }
+        }
+       .network-right-icon-section {
+            padding-left: 10%;
+       }
+       @media only screen and (max-width: 768px)  {
+            .network-right-icon-section {
+                padding-left: 0%;
+            }
+       }
+        .contact-image {
+            height: 60px;
+            width: 60px;
+        }
+
+        .callData {
+            display: inline-flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-left: 8.5%;
+            padding-right: 10%;
+        }
+        @media only screen and (max-width: 768px)  {
+            .callData {
+                display: inline-flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                padding-left: 6%;
+                padding-right: 4%;
+            }
+        }
+
+        .otherOptions {
+            display: inline-flex;
+            justify-content: space-between;
+            padding-right: 10%;
+        }
+        @media only screen and (max-width: 768px)  {
+            .otherOptions {
+                display: inline-flex;
+                justify-content: space-between;
+                padding-right: 4%;
+            }
+        }
+        .otherOptions-iconBG {
+            background-color: #8080803d;
+            border: none;
+            border-radius: 50%;
+            padding: 12px;
+        }
+        @media only screen and (max-width: 768px)  {
+            .otherOptions-iconBG {
+                background-color: #8080803d;
+                border: none;
+                border-radius: 50%;
+                padding: 12px;
+            }
+        }
+
+        .col-1 {
+            margin-top: 2%;
+            flex: 0 0 auto;
+            width: 8.33333333%;
+        }
+
+        .expandable-content {
+            display: none;
+            padding: 10px;
+        }
+
+        .list-group-item.expanded .expandable-content {
+            display: block;
+        }
+
+        .details {
+            background: linear-gradient(#68afe3, #1553c2, #1553c2, #68afe3);
+            background-repeat: no-repeat;
+        }
+
+        .details {
+            padding: 20px 0;
+        }
+
+        .custom-btn {
+            border: none;
+            background: linear-gradient(to right, #5e8cbe, #87afc8);
+            color: #fff;
+            font-size: 12px;
+            width: 100%;
+            height: 30px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 200;
+        }
+
+        .detail-list {
+            margin: 0;
+            padding: 15px 15px;
+        }
+
+        .detail-list li {
+            font-size: 12px;
+            line-height: 35px;
+            color: #fff;
+            font-weight: 300;
+            border-bottom: 1px solid #dddddd36;
+        }
+
+        .new-leads {
+            background: #5aa1b5;
+            font-size: 13px;
+            padding: 5px 15px;
+            color: #fff;
+        }
+
+        .apartment {
+            margin-top: -21px;
+            font-size: 10px;
+            margin-bottom: 0;
+        }
+
+        section.fotter-bottom {
+            background: #fff;
+            z-index: 999;
+            box-shadow: 1px 1px 3px 1px #2c282866;
+            padding: 5px 0 !important;
+            position: fixed;
+            bottom: 8% !important;
+            height: 66px !important;
+            width: 100%;
+        }
+
+        .icon {
+            width: 40px;
+            display: table;
+            margin: 0 auto;
+            box-shadow: 1px 1px 1px 1px #ddd;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            color: #787171;
+
+            position: relative;
+        }
+
+        .icon span {
+            font-size: 8px;
+            position: absolute;
+            background: #dc3545;
+            width: 12px;
+            height: 12px;
+            border-radius: 15px;
+            right: -1px;
+            top: -4px;
+            line-height: 12px;
+            color: #fff;
+        }
+
+        .custom-link {
+            border: 1px solid #abcbb2 !important;
+            padding: 5px 22px;
+            width: auto;
+            font-size: 10px;
+            border-radius: 0 !important;
+            background: #dffbe5;
+            color: #495057;
+        }
+
+        .custom-nav {
+            border: none;
+        }
+
+        .custom-item {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .center-nav {
+            display: table;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+
+        li.plus-icon .fa {
+            font-size: 17px;
+            padding: 4px 10px;
+            color: #28a745;
+        }
+        .list-hour ul {
+            margin: 0;
+            padding: 0px;
+        }
+
+        .list-hour ul li {
+            font-size: 13px;
+            padding: 8px 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .grey-box {
+            background: #f4f2f5;
+            padding-bottom: 50px;
+        }
+
+        .grey-box p {
+            font-size: 11px;
+            padding: 20px 10px 0;
+            color: #9b9898;
+            margin-bottom: 10px;
+        }
+
+        .grey-box h4 {
+            font-size: 12px;
+            padding: 0 10px 10px;
+            color: #a0a0a0;
+        }
+
+        .white-btn {
+            background: #fff;
+            width: 97%;
+            display: table;
+            margin: 0 auto;
+            border-radius: 4px;
+        }
+
+        .white-btn a {
+            font-size: 14px;
+            color: #000;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+
+        .right-span {
+            font-size: 10px;
+            margin-top: 4px;
+            color: #9c9a9a;
+        }
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        .sticky+.content {
+            padding-top: 102px;
+        }
+
+        .task {
+            width: 10%;
+        }
+
+        .setting {
+            width: 10%;
+        }
+
+        section.profile-header {
+            background: #f6f7fb;
+            padding: 20px;
+        }
+
+        .profile-img img {
+            width: 60px;
+            margin-right: 15px;
+        }
+
+        .profile-text h4 {
+            color: #7c7c7c;
+            font-size: 12px;
+            margin: 0;
+        }
+
+        .profile-text p {
+            color: #7c7c7c;
+            font-size: 12px;
+            margin: 0;
+        }
+
+        .description-tabs {
+            display: table;
+            margin: 0 auto;
+        }
+
+        .bg-tab {
+            background: #f6f7fb;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .lead-tabs {
+            border: none;
+        }
+
+        .lead-tabs .lead-item.show .lead-link,
+        .lead-tabs .lead-link.active {
+            color: #000;
+            background: none;
+            border: none;
+            padding: 10px 15px;
+        }
+
+        .lead-tabs .lead-item.show .lead-link,
+        .lead-tabs .lead-link:hover {
+            color: #000;
+            background: none;
+            border: none;
+            padding: 10px 15px;
+        }
+
+        .lead-link {
+            font-size: 13px;
+            color: #5a5757;
+            text-transform: uppercase;
+            padding: 10px 35px;
+            border: none !important;
+            border-radius: 0 !important;
+        }
+
+        .margin-bottom {
+            margin-bottom: 90px;
+        }
+
+        .text-view ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .text-view ul li {
+            list-style: none;
+            padding: 6px 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .text-view ul li p {
+            margin: 0;
+            font-size: 15px;
+            color: #000;
+        }
+
+        .text-view ul li p span {
+            font-size: 13px;
+            color: #5a5757;
+        }
+
+        .left-text h4 {
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+        }
+
+        .left-text p {
+            margin: 0;
+            font-size: 11px;
+            color: #7c7c7c;
+        }
+
+        .right-text {
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+            border-radius: 50px;
+        }
+
+        .right-text img {
+            width: 100%;
+        }
+
+        .related-link {
+            margin-left: -1px;
+            border: 1px solid #c4c4c4 !important;
+            box-sizing: border-box;
+            border-radius: 0px 10px 10px 0px !important;
+            padding: 5px 20px;
+            font-size: 13px;
+            color: #a4a0a0;
+        }
+
+        .first-border {
+            border-radius: 10px 0 0 10px !important;
+        }
+
+        .related-tabs {
+            border: none;
+        }
+
+        .related-tabs .related-item.show .related-link,
+        .related-tabs .related-link.active {
+            color: #fff;
+            background-color: #a9a9a9;
+        }
+
+        .related-content {
+            padding: 15px 0;
+        }
+
+        .left-text {
+            padding: 10px;
+        }
+
+        .right-text {
+            padding: 10px;
+        }
+
+        .grey-bg {
+            background: #f4f2f5;
+            padding: 10px;
+        }
+
+        .grey-bg img {
+            width: 28px;
+            height: 28px;
+        }
+
+        .related-text .grey-bg:nth-child(even) {
+            background: #fff;
+        }
+
+        .description p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .description h6 {
+            font-size: 12px;
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+        }
+
+        .description span {
+            font-size: 10px;
+        }
+
+        .description {
+            color: #7c7c7c;
+        }
+
+        .status-comlete {
+            color: #5d6dff;
+            text-align: center;
+        }
+
+        .grey-bg h4 {
+            font-size: 14px;
+        }
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        .sticky+.content {
+            padding-top: 102px;
+        }
+
+        .mr-5 {
+            margin-right: 15px;
+        }
+
+        .product-info-detail img {
+            width: 28px;
+            height: 28px;
+        }
+
+        .product-info-detail {
+            padding: 10px;
+        }
+
+        .description h4 {
+            font-size: 17px;
+            margin: 0;
+            color: #000;
+        }
+
+        .product-info-detail span {
+            font-size: 13px;
+        }
+
+        .list-hour .fa {
+            padding-right: 8px;
+        }
+
+        .list-hour img {
+            margin-right: 8px;
+        }
+
+        .genral-header.d-flex.justify-content-between {
+            padding: 10px;
+        }
+
+        .genral-header h4 {
+            font-size: 17px;
+            margin: 0;
+        }
+
+        .back .fa {
+            padding: 0 5px;
+        }
+
+        .genral-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .table> :not(:last-child)> :last-child>* {
+            border-bottom: 1px solid #ddd !important;
+        }
+
+        .card-box {
+            background: #ffffff;
+            border-radius: 5px;
+            margin: 10px;
+            box-shadow: 1px 1px 3px 1px #ddd;
+        }
+        .task-header {
+            padding: 10px 0;
+        }
+
+        .task-header h2 {
+            font-size: 25px;
+            color: green;
+            margin: 0;
+            line-height: 37px;
+        }
+
+        .task-header h4 {
+            margin: 0;
+            font-size: 17px;
+            color: green;
+        }
+
+        .task-header p {
+            font-size: 12px;
+            color: #0062cc;
+            margin: 0;
+        }
+
+        .task-content {
+            padding: 0px 0 10px;
+        }
+
+        .task-content ul {
+            padding: 0;
+            margin: 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .task-content ul li {
+            list-style: none;
+            border-top: 1px solid #ddd;
+            line-height: 25px;
+            position: relative;
+        }
+
+        .paddin-sec {
+            padding: 18px 0;
+        }
+
+        .chat-content {
+            padding: 0 10px;
+        }
+
+        .chat-content ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .chat-content ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .chat-content ul li {
+            border-bottom: 1px solid #ddd;
+            line-height: 25px;
+            list-style: none;
+        }
+
+        .chat-content ul li p {
+            margin: 0;
+            font-size: 13px;
+            color: #8a8989;
+            padding: 8px 0;
+        }
+
+        .task-sec {
+            margin: 2px 10px;
+            border-radius: 10px;
+            background: #fff;
+            padding: 0 15px;
+        }
+
+        .completed-text {
+            text-align: center;
+            padding: 10px 0 50px;
+            font-size: 13px;
+            color: #3475ce;
+        }
+
+        .plus-icon {
+            position: absolute;
+            top: 2px;
+            background: #fff;
+            padding: 5px;
+            z-index: 99;
+            width: 30px;
+            color: #918d8d;
+            font-size: 20px;
+        }
+
+        .search {
+            background: #ddd;
+            padding: 10px;
+        }
+
+        .search input {
+            width: 100%;
+            height: 32px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 9px;
+            font-size: 13px;
+            position: relative;
+        }
+
+        .search .fa {
+            position: absolute;
+            right: 20px;
+            top: 65px;
+            color: #aba8a8;
+        }
+
+        .chat-profile-info {
+            background: #ececec;
+            padding: 10px 15px;
+        }
+
+        .profile-img img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+        }
+
+        .text h4 {
+            margin: 0;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .text p {
+            font-size: 12px;
+            color: #767272;
+            padding: 5px 0;
+        }
+
+        .time p {
+            font-size: 11px;
+            color: #767272;
+            margin: 0;
+        }
+
+        .time {
+            line-height: 55px;
+        }
+
+        .task-content ul li p {
+            margin: 0;
+            font-size: 13px;
+            padding: 9px 0px 5px 34px;
+            color: #7e7c7c;
+        }
+
+        .chat-header {
+            background: #f6f6f6;
+            padding: 10px;
+            border-bottom: 1px solid #cecece;
+        }
+
+        .chat-header h4 {
+            margin: 0;
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .details-text a {
+            font-size: 15px;
+            text-decoration: none;
+            color: #126fab;
+        }
+     
+        .appMain {
+            position: relative;
+        }
+
+        #popUpContainer .modal-content {
+            border-radius: 20px;
+        }
+
+        .modal-body {
+            background-color: #edeff6;
+        }
+
+        .popupTitle {
+            background-color: #fff;
+            margin-top: 25px;
+            padding: 15px;
+        }
+
+        .popupTitle>p {
+            font-size: 18px;
+            margin-bottom: 0px;
+        }
+
+        .popIpDone {
+            cursor: pointer;
+        }
+
+        .popupSettings {
+            margin-top: 25px;
+            padding: 12px 15px;
+            background-color: white;
+        }
+
+        .priorityValues {
+            width: fit-content;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5vw;
+            color: #1888c6;
+            border: 1px solid #1888c6;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .priorityValues>.selectedPriority {
+            background-color: #1888c6;
+            color: #fff;
+        }
+
+        .priorityValues>.btn:hover,
+        .priorityValues>.btn:focus {
+            background-color: #1888c6;
+            color: #fff;
+        }
+
+        .popupSettings>p {
+            font-size: 16px;
+        }
+
+        .popupPriority {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #bfc1c0;
+        }
+
+        .popupList {
+            padding: 23px 0px;
+        }
+
+        .popupNotes {
+            color: gray;
+        }
+
+        .inner {
+            width: 1.2vw;
+            height: 1.2vw;
+        }
+
+        @media only screen and (max-width: 600px) {
+
+            .inner {
+                text-align: center;
+                width: 1.2vw;
+                height: 1.2vw;
+            }
+        }
+        .btn-group>.btn-group:not(:first-child)>.btn, .btn-group>.btn:nth-child(n+3), .btn-group>:not(.btn-check)+.btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+.btn-group>.btn-group:not(:last-child)>.btn, .btn-group>.btn.dropdown-toggle-split:first-child, .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.postTab-topNav {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 1% 0%;
+    margin: 0 2%;
+}
+@media only screen and (max-width: 768px) {
+    .postTab-topNav {
+        display: flex;
+        justify-content: space-between;
+        background-color: white;
+        padding: 4% 5%;
+    }
+}
+.bg-circle-icon {
+    border: none;
+    border-radius: 50%;
+    background-color: #8080807d;
+    padding: 0.9% 1.5%;
+}
+@media only screen and (max-width: 768px) {
+    .bg-circle-icon {
+        border: none;
+        border-radius: 50%;
+        background-color: #8080807d;
+        padding: 2% 4%;
+    }
+}
+.bg-circle-icon > i {
+    color: white;
+    font-size: 25px;
+}
+@media only screen and (max-width: 768px) {
+    .bg-circle-icon > i {
+        color: white;
+        font-size: 18px;
+    }
+}
+.postTab-contact-CTA {
+    display: flex;
+    background-color: whitesmoke;
+    padding: 1% 2%;
+}
+@media only screen and (max-width: 768px) {
+    .postTab-contact-CTA {
+        display: flex;
+        background-color: whitesmoke;
+        padding: 4% 5%;
+    }
+}
+.postTab-contact-profile-img {
+    border: none;
+    border-radius: 5px;
+    background-color: violet;
+    padding: 1% 2%;
+}
+@media only screen and (max-width: 768px) {
+    .postTab-contact-profile-img {
+        border: none;
+        border-radius: 5px;
+        background-color: violet;
+        padding: 3% 6%;
+    }
+}
+.postTab-person-details-CTA {
+    padding: 1%;
+}
+.postTab-contact-profile-img > i {
+    color: white;
+    font-size: 30px;
+}
+.postTab-contact-details {
+    margin-left: 1%;
+    margin-top: 0.5%;
+}
+@media only screen and (max-width: 768px) {
+    .postTab-contact-details {
+        margin-left: 3%;
+        margin-top: 1.5%;
+    }
+}
+.postTab-contact-details-span1 {
+    color: gray;
+    font-size: 15px;
+}
+.postTab-contact-details-span2 {
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+    display: block;
+}
+.postTab-collapse-CTA {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5%;
+    border-top: 1px solid #80808091;
+    border-bottom: 1px solid #80808091;
+}
+@media only screen and (max-width: 768px) {
+    .postTab-collapse-CTA {
+        display: flex;
+        justify-content: space-between;
+        padding: 3%;
+        border-top: 1px solid #80808091;
+        border-bottom: 1px solid #80808091;
+    }
+}
+.postTab-collapse-CTA > p {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+.postTab-collapse-CTA > i {
+    font-size: 20px;
+    color: gray;
+}
+.postTab-scrollUp-CTA {
+    border-top: 2px solid slategray;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-top: 3.5%;
+    width: 100%;
+}
+.postTab-scrollUp-CTA > p {
+    font-weight: 700;
+    font-size: 22px;
+    padding: 2% 5% 5% 5%;
+}
+@media only screen and (max-width: 768px) {
+    .postTab-scrollUp-CTA > p {
+        font-weight: 700;
+        font-size: 22px;
+        padding: 2% 5%;
+    }
+}
+.postTab-scrollUp-offCanvas {
+    margin-bottom: 0%;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+}
+@media only screen and (max-width: 768px) {
+    .postTab-scrollUp-offCanvas {
+        margin-bottom: 15%;
+        border-top-left-radius: 5%;
+        border-top-right-radius: 5%;
+    }
+}
+.offcanvas.offcanvas-bottom {
+    height: 85%;
+}
+.offcanvas-title {
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+    padding: 2%;
+}
+.scroll-btn {
+    width: 15%;
+}
+  </style>
+
+</head>
+
+<body>
+
+    <div class="instagramMainPage">
+        <div class="instaHeader">
+            <div class="userIcon">
+                <img src="https://dipeshyadav8655.github.io/post/static/media/user%20icon.b994a4dff2c2d41423cd290fc8f36035.svg"
+                    alt="UserLogo">
+            </div>
+            <div class="searchField" id="searchField">
+                <div class="col-md-12">
+                    <div class="form">
+                        <svg class="magnifying-glass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 17" width="15"
+                            height="15" fill="gray">
+                            <path fill-rule="nonzero"
+                                d="M.136 6.975c0 .896.17 1.738.508 2.528a6.58 6.58 0 0 0 3.481 3.481c.786.335 1.63.502 2.533.502.69 0 1.35-.102 1.979-.307a6.519 6.519 0 0 0 1.733-.862l3.814 3.825c.11.103.23.178.36.226.129.048.262.072.399.072.3 0 .547-.1.738-.298.192-.198.287-.448.287-.748a1.068 1.068 0 0 0-.287-.739l-3.794-3.804c.404-.54.718-1.14.944-1.8.225-.66.338-1.351.338-2.076 0-.902-.17-1.746-.508-2.533a6.64 6.64 0 0 0-1.4-2.076A6.52 6.52 0 0 0 9.186.961 6.348 6.348 0 0 0 6.658.454c-.903 0-1.747.169-2.533.507A6.597 6.597 0 0 0 2.05 2.366 6.597 6.597 0 0 0 .644 4.442a6.337 6.337 0 0 0-.508 2.533Zm1.58 0a4.885 4.885 0 0 1 1.44-3.496 5.036 5.036 0 0 1 1.58-1.062 4.829 4.829 0 0 1 1.922-.384c.683 0 1.323.128 1.917.384.595.257 1.12.61 1.574 1.062.455.45.81.975 1.067 1.574.256.598.384 1.239.384 1.922 0 .684-.128 1.323-.384 1.918a5.01 5.01 0 0 1-1.067 1.574 5.01 5.01 0 0 1-1.574 1.066 4.792 4.792 0 0 1-1.917.385 4.829 4.829 0 0 1-1.923-.385 4.993 4.993 0 0 1-2.64-2.64 4.848 4.848 0 0 1-.38-1.918Z">
+                            </path>
+                        </svg>
+                        <input class="form-control form-input searchFieldTextInput" id="searchFieldText" type="search"
+                            placeholder="Search">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img src="https://dipeshyadav8655.github.io/post/static/media/speech-bubble-black-icon.da2b6bc00123afc867de3a87df50e081.svg"
+                    alt="Message Icon">
+            </div>
+        </div>
+        <div class="instaBodyContent container-fluid">
+            <div id="homeTabContent">
+                <div class="profile-section">
+                    <div class="profileImg">
+                        <img src="https://dipeshyadav8655.github.io/post/static/media/user%20icon.b994a4dff2c2d41423cd290fc8f36035.svg"
+                            alt="UserLogo" height="50px" width="10px">
+                    </div>
+                    <div class="profileDetails">
+                        <p class="profileDetails-name">Salesforce</p>
+                        <p class="profileDetails-text">4,00,000 followers</p>
+                        <p class="profileDetails-text">Promoted</p>
+                    </div>
+                </div>
+                <div class="m-3">
+                    <div class="mainContent-tagline">
+                        <div class="initial-content">
+                            <p class="mainContent-tagline-p">How you maximize productivity? Learn how one
+                                platform powered. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                Rerum aliquid optio qui dolorem laboriosam placeat reprehenderit debitis quasi,
+                                ex magni cupiditate! Voluptatibus hic unde perspiciatis aut commodi nulla, odio
+                                doloremque.
+                            </p>
+                        </div>
+                        <span class="mainContent-tagline-span" onclick="toggleTaglineContent()">... Show more</span>
+                    </div>
+                    <div class="postContainer img-wrapper">
+                        <img class="lazy" src="https://placehold.co/300x300?text=Coming+Soon"
+                            data-src="https://source.unsplash.com/5I83tKtPlGM/340x350" alt="post img" />
+                    </div>
+                    <div class="bottomLine">
+                        <p class="bottomLine-p">Watch the demo to see how you can see more deals no matter what.</p>
+                        <span class="bottomLine-span">salesforce.com</span>
+                    </div>
+                    <div class="mt-5 text-center">
+                        <p class="Learn-more">Learn More</p>
+                    </div>
+                </div>
+                <div class="postBottomContainer">
+                    <div class="post-like-comment-section border">
+                        <div class="like-icon">
+                            <img src="https://dipeshyadav8655.github.io/post/static/media/like-button-black-icon.6c8e3e8119f2c660fea682a03823cc81.svg"
+                                alt="Likes">
+                            <p class="like-counter">0</p>
+                        </div>
+                        <p class="comment commentCounter" id="commentCounter">0 comments</p>
+                    </div>
+                    <div class="m-3 post-bottom-icons">
+                        <img src="https://dipeshyadav8655.github.io/post/static/media/Group%206.2f316e72a5b877a1871180e6f6dd7b75.svg"
+                            alt="Drop Down">
+
+                        <img src="https://dipeshyadav8655.github.io/post/static/media/Like.b9d3548c442d7e5f85c1324b032ce0c4.svg"
+                            alt="Like" class="like">
+                        <img src="https://dipeshyadav8655.github.io/post/static/media/Comment.1667de0ad2857c33166c6e17fd63dba9.svg"
+                            alt="Comment" class="commentIcon">
+                        <img src="https://dipeshyadav8655.github.io/post/static/media/Repost.14e958053bafc4e99051a851b857cdd7.svg"
+                            alt="Repost">
+                        <img src="https://dipeshyadav8655.github.io/post/static/media/Share.491b6f3d869ac214913ce5282ef2eddb.svg"
+                            alt="Share">
+                    </div>
+                </div>
+            </div>
+
+            <div id="networkTabContent" style="display:none;">
+                <div style="padding: 7px;">
+                    <div class="track">
+                        <label for="item-1" class="control">
+                            <input id="item-1" type="radio" name="ans4" value="High" class="control__input" checked="">
+                            <div class="control__indicator">New </div>
+                        </label>
+                        <label for="item-2" class="control">
+                            <input id="item-2" type="radio" name="ans4" value="Medium" class="control__input">
+                            <div class="control__indicator">Processed</div>
+                        </label>
+                    </div>
+                </div>
+
+                <hr style="margin: 0.5rem 0;">
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" onclick="toggleNetworkContent(this)">
+                        <div class="container">
+                            <div class="row align-items-start">
+                                <div class="col-1" style="margin-top: 20px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-telephone-outbound" viewBox="0 0 16 16">
+                                        <path
+                                            d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5" />
+                                    </svg>
+                                </div>
+
+                                <div class="col-8">
+                                    <p class="personName">Rajesh </p>
+                                </div>
+
+                                <div class="col-3 network-right-icon-section">
+                                    <div class="network-mic-info-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+                                            <path
+                                                d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5" />
+                                            <path
+                                                d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3" />
+                                        </svg>
+                                        <svg fill="#0071eb" viewBox="0 0 268.0201416015625 158.116943359375"
+                                            version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                            class="symbol-icon layout-box" aria-hidden="true"
+                                            style="height: 35.6847px; ">
+                                            <g transform="matrix(1 0 0 1 75.46503906249995 114.2884521484375)">
+                                                <path
+                                                    d="M58.5449 14.5508C85.791 14.5508 108.35-8.05664 108.35-35.2539C108.35-62.5 85.7422-85.0586 58.4961-85.0586C31.2988-85.0586 8.74023-62.5 8.74023-35.2539C8.74023-8.05664 31.3477 14.5508 58.5449 14.5508ZM58.5449 6.25C35.498 6.25 17.0898-12.207 17.0898-35.2539C17.0898-58.3008 35.4492-76.7578 58.4961-76.7578C81.543-76.7578 100-58.3008 100.049-35.2539C100.098-12.207 81.5918 6.25 58.5449 6.25ZM57.5195-25.1465C59.9609-25.1465 61.4746-26.709 61.4746-28.6133L61.4746-29.1992C61.4746-31.9336 63.0371-33.6914 66.4551-35.9375C71.1914-39.0625 74.5605-41.8945 74.5605-47.7539C74.5605-55.8594 67.334-60.2539 59.0332-60.2539C50.6348-60.2539 45.1172-56.25 43.7988-51.7578C43.5547-50.9766 43.3594-50.1465 43.3594-49.3652C43.3594-47.168 45.1172-45.9961 46.7285-45.9961C49.5117-45.9961 49.9512-47.4609 51.5137-49.3164C53.125-52.002 55.4688-53.6133 58.7402-53.6133C63.1836-53.6133 66.0645-51.0742 66.0645-47.3633C66.0645-44.043 64.0137-42.4316 59.7656-39.4531C56.25-37.0117 53.6133-34.4238 53.6133-29.6387L53.6133-29.0039C53.6133-26.4648 55.0293-25.1465 57.5195-25.1465ZM57.4219-10.5957C60.2539-10.5957 62.6953-12.8418 62.6953-15.6738C62.6953-18.5059 60.3027-20.752 57.4219-20.752C54.541-20.752 52.1484-18.457 52.1484-15.6738C52.1484-12.8906 54.5898-10.5957 57.4219-10.5957Z">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div class="col-1" style="color: #cccccc;">
+                                        12:30PM
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Example expandable content -->
+                        <div class="expandable-content">
+                            <div class="container" style="display: flex; flex-direction: column;">
+                                <div class="callData">
+                                    <div class="callTime">
+                                        <p><b>Mobile +918309496206</b></p>
+                                        <p style="margin-top: 10px;">Outgoing Call, 0 mins 31 secs</p>
+                                    </div>
+                                    <div class="profileImage">
+                                        <img class="contact-image" src="https://letusbiz.com/old/crm/desktop/add11.png">
+                                    </div>
+                                </div>
+                                <div class="otherOptions">
+                                    <div class="otherOptions-iconBG">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#2e2727a6" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+                                        </svg>
+                                    </div>
+                                   
+                                    <div class="otherOptions-iconBG">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#2e2727a6" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                                            <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15"/>
+                                        </svg>
+                                    </div>
+                                
+                                    <div class="otherOptions-iconBG">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#2e2727a6" class="bi bi-camera-video-fill" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2z"/>
+                                        </svg>
+                                    </div>
+                                    
+                                    <div class="otherOptions-iconBG">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#2e2727a6" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <hr style="margin: 0rem 0;">
+
+                    <li class="list-group-item" onclick="toggleNetworkContent(this)">
+                        <div class="container">
+                            <div class="row align-items-start">
+                                <div class="col-1" style="margin-top: 20px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-telephone-outbound" viewBox="0 0 16 16">
+                                        <path
+                                            d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5" />
+                                    </svg>
+                                </div>
+
+                                <div class="col-8">
+                                    <p class="personName">Mayil </p>
+                                </div>
+
+                                <div class="col-3 network-right-icon-section">
+                                    <div class="network-mic-info-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+                                            <path
+                                                d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5" />
+                                            <path
+                                                d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3" />
+                                        </svg>
+                                        <svg fill="#0071eb" viewBox="0 0 268.0201416015625 158.116943359375"
+                                            version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                            class="symbol-icon layout-box" aria-hidden="true"
+                                            style="height: 35.6847px; ">
+                                            <g transform="matrix(1 0 0 1 75.46503906249995 114.2884521484375)">
+                                                <path
+                                                    d="M58.5449 14.5508C85.791 14.5508 108.35-8.05664 108.35-35.2539C108.35-62.5 85.7422-85.0586 58.4961-85.0586C31.2988-85.0586 8.74023-62.5 8.74023-35.2539C8.74023-8.05664 31.3477 14.5508 58.5449 14.5508ZM58.5449 6.25C35.498 6.25 17.0898-12.207 17.0898-35.2539C17.0898-58.3008 35.4492-76.7578 58.4961-76.7578C81.543-76.7578 100-58.3008 100.049-35.2539C100.098-12.207 81.5918 6.25 58.5449 6.25ZM57.5195-25.1465C59.9609-25.1465 61.4746-26.709 61.4746-28.6133L61.4746-29.1992C61.4746-31.9336 63.0371-33.6914 66.4551-35.9375C71.1914-39.0625 74.5605-41.8945 74.5605-47.7539C74.5605-55.8594 67.334-60.2539 59.0332-60.2539C50.6348-60.2539 45.1172-56.25 43.7988-51.7578C43.5547-50.9766 43.3594-50.1465 43.3594-49.3652C43.3594-47.168 45.1172-45.9961 46.7285-45.9961C49.5117-45.9961 49.9512-47.4609 51.5137-49.3164C53.125-52.002 55.4688-53.6133 58.7402-53.6133C63.1836-53.6133 66.0645-51.0742 66.0645-47.3633C66.0645-44.043 64.0137-42.4316 59.7656-39.4531C56.25-37.0117 53.6133-34.4238 53.6133-29.6387L53.6133-29.0039C53.6133-26.4648 55.0293-25.1465 57.5195-25.1465ZM57.4219-10.5957C60.2539-10.5957 62.6953-12.8418 62.6953-15.6738C62.6953-18.5059 60.3027-20.752 57.4219-20.752C54.541-20.752 52.1484-18.457 52.1484-15.6738C52.1484-12.8906 54.5898-10.5957 57.4219-10.5957Z">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div class="col-1" style="color: #cccccc;">
+                                        12:30PM
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="expandable-content">
+                            <div class="container" style="display: flex; flex-direction: column;">
+                                <div class="callData">
+                                    <div class="callTime">
+                                        <p><b>Mobile +919433790125</b></p>
+                                        <p style="margin-top: 10px;">Incomming Call, 2 mins 51 secs</p>
+                                    </div>
+                                    <div class="profileImage">
+                                        <img class="contact-image" src="https://letusbiz.com/old/crm/desktop/add11.png">
+                                    </div>
+                                </div>
+                                <div class="otherOptions">
+                                    <div class="otherOptions-iconBG">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#2e2727a6" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+                                        </svg>
+                                    </div>
+                                   
+                                    <div class="otherOptions-iconBG">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#2e2727a6" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                                            <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15"/>
+                                        </svg>
+                                    </div>
+                                
+                                    <div class="otherOptions-iconBG">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#2e2727a6" class="bi bi-camera-video-fill" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2z"/>
+                                        </svg>
+                                    </div>
+                                    
+                                    <div class="otherOptions-iconBG">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#2e2727a6" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                    <hr style="margin: 0rem 0;">
+                </ul>
+            </div>
+
+            <div id="postTabContent" style="display:none;">
+                <div class="postTab-topNav container">
+                    <div class="bg-circle-icon">
+                        <i class="bi bi-chat-fill"></i>
+                    </div>
+                    <div class="bg-circle-icon">
+                        <i class="bi bi-file-earmark-arrow-up-fill"></i>
+                    </div>
+                    <div class="bg-circle-icon">
+                        <i class="bi bi-list-check"></i>
+                    </div>
+                    <div class="bg-circle-icon">
+                        <i class="bi bi-three-dots"></i>
+                    </div>
+                </div>
+                <div class="postTab-contact-CTA">
+                    <div class="postTab-contact-profile-img">
+                        <i class="bi bi-person-lines-fill"></i>
+                    </div>
+                    <div class="postTab-contact-details">
+                        <span class="postTab-contact-details-span1">Contact</span>
+                        <span class="postTab-contact-details-span2">Mary Rider</span>
+                    </div>
+                </div>
+                <div class="postTab-person-details-CTA">
+                    <table class="table postTab-person-details-table">
+                        <tbody>
+                          <tr>
+                            <td>Title</td>
+                            <td>Master of Everything</td>
+                          </tr>
+                          <tr>
+                            <td>Account Name</td>
+                            <td style="color: #1888c6;">Imail LTD</td>
+                          </tr>
+                          <tr>
+                            <td>Phone</td>
+                            <td style="color: #1888c6;">1234567890</td>
+                          </tr>
+                          <tr>
+                            <td>Email</td>
+                            <td style="color: #1888c6;">maria@imail.com</td>
+                          </tr>
+                          <tr>
+                            <td>mobile</td>
+                            <td style="color: #1888c6;"> </td>
+                          </tr>
+                          <tr>
+                            <td>Contact Owner</td>
+                            <td style="color: #1888c6;">Maria Sundstrom</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="postTab-collapse-CTA related-CTA" data-bs-toggle="collapse" data-bs-target="#postTab-table-expanded-CTA1" aria-expanded="false" aria-controls="postTab-collapse-CTA">
+                    <p>Related</p>
+                    <i class="bi bi-chevron-right"></i>
+                </div>
+                <div class="postTab-person-details-CTA collapse" id="postTab-table-expanded-CTA1">
+                    <table class="table postTab-person-details-table">
+                        <tbody>
+                          <tr>
+                            <td>Title</td>
+                            <td>Master of Literature</td>
+                          </tr>
+                          <tr>
+                            <td>Account Name</td>
+                            <td style="color: #1888c6;">CC LTD</td>
+                          </tr>
+                          <tr>
+                            <td>Phone</td>
+                            <td style="color: #1888c6;">1234567890</td>
+                          </tr>
+                          <tr>
+                            <td>Email</td>
+                            <td style="color: #1888c6;">maria@CC.com</td>
+                          </tr>
+                          <tr>
+                            <td>mobile</td>
+                            <td style="color: #1888c6;"> </td>
+                          </tr>
+                          <tr>
+                            <td>Contact Owner</td>
+                            <td style="color: #1888c6;">Rajesh Sundstrom</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="postTab-collapse-CTA details-CTA" data-bs-toggle="collapse" data-bs-target="#postTab-table-expanded-CTA2" aria-expanded="false" aria-controls="postTab-collapse-CTA">
+                    <p>Details</p>
+                    <i class="bi bi-chevron-right"></i>
+                </div>
+                <div class="postTab-person-details-CTA collapse" id="postTab-table-expanded-CTA2">
+                    <table class="table postTab-person-details-table">
+                        <tbody>
+                          <tr>
+                            <td>Title</td>
+                            <td> Everything</td>
+                          </tr>
+                          <tr>
+                            <td>Account Name</td>
+                            <td style="color: #1888c6;">Accenture LTD</td>
+                          </tr>
+                          <tr>
+                            <td>Phone</td>
+                            <td style="color: #1888c6;">1234567890</td>
+                          </tr>
+                          <tr>
+                            <td>Email</td>
+                            <td style="color: #1888c6;">maria@Accen.com</td>
+                          </tr>
+                          <tr>
+                            <td>mobile</td>
+                            <td style="color: #1888c6;"> </td>
+                          </tr>
+                          <tr>
+                            <td>Contact Owner</td>
+                            <td style="color: #1888c6;">Maria Sundstrom</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="postTab-scrollUp-CTA"  data-bs-toggle="offcanvas" data-bs-target="#postTab-scrollUp-offCanvas" aria-controls="postTab-scrollUp-CTA">
+                    <div class="d-flex justify-content-center" style="margin-top: 2%;">
+                        <button class="btn btn-secondary scroll-btn"></button>
+                    </div>
+                    <p>Recent Activity</p>
+                </div>
+                <div class="offcanvas offcanvas-bottom postTab-scrollUp-offCanvas" tabindex="-1" id="postTab-scrollUp-offCanvas" aria-labelledby="postTab-scrollUp-offCanvas">
+                    <div class="offcanvas-body small">
+                        <div class="d-flex justify-content-center">
+                            <button class="btn btn-secondary scroll-btn"></button>
+                        </div>
+                        <p class="offcanvas-title">Recent Activity</p>
+                        <table class="table postTab-person-details-table" style="margin-top: 3%;">
+                            <tbody>
+                              <tr>
+                                <td>Title</td>
+                                <td>Master of Everything</td>
+                              </tr>
+                              <tr>
+                                <td>Account Name</td>
+                                <td style="color: #1888c6;">Imail LTD</td>
+                              </tr>
+                              <tr>
+                                <td>Phone</td>
+                                <td style="color: #1888c6;">1234567890</td>
+                              </tr>
+                              <tr>
+                                <td>Email</td>
+                                <td style="color: #1888c6;">maria@imail.com</td>
+                              </tr>
+                              <tr>
+                                <td>mobile</td>
+                                <td style="color: #1888c6;"> </td>
+                              </tr>
+                              <tr>
+                                <td>Contact Owner</td>
+                                <td style="color: #1888c6;">Maria Sundstrom</td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="NotoficationTabContent" style="display:none;">
+                <div class="appMain">
+                    <section class="details">
+                        <div class="task-sec">
+                            <div class="task-header d-flex justify-content-between">
+                                <h2>W</h2>
+                                <div class="edit-sec">
+                                    <h4>1</h4>
+                                    <p>Edit</p>
+                                </div>
+                            </div>
+                            <div class="task-content">
+                                <ul>
+                                    <li>
+                                        <div class="plus-icon">
+                                            <div class="inner">
+                                                <svg aria-hidden="true" focusable="false" data-prefix="far"
+                                                    data-icon="circle-dot" class="svg-inline--fa fa-circle-dot "
+                                                    role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                                    width="20" height="20" style="color: rgb(26, 199, 55);">
+                                                    <path fill="currentColor"
+                                                        d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256-96a96 96 0 1 1 0 192 96 96 0 1 1 0-192z">
+                                                    </path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <span class="d-flex justify-content-between opensPopUp" id="opensPopUp">
+                                            <p>3:00</p>
+                                            <p>23-march-2021</p>
+                                        </span>
+                                    </li>
+                                    <li class="paddin-sec">
+                                        <div class="plus-icon">
+                                            <svg aria-hidden="true" focusable="false" data-prefix="far"
+                                                data-icon="circle" class="svg-inline--fa fa-circle " role="img"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20"
+                                                height="20">
+                                                <path fill="currentColor"
+                                                    d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                    </li>
+                                    <li class="paddin-sec">
+                                        <div class="plus-icon"><i class="fa fa-plus" aria-hidden="true"></i></div>
+                                    </li>
+                                    <li class="paddin-sec"></li>
+                                    <li class="paddin-sec"></li>
+                                    <li class="paddin-sec"></li>
+                                    <li class="paddin-sec"></li>
+                                    <li class="paddin-sec"></li>
+                                    <li class="paddin-sec"></li>
+                                </ul>
+                            </div>
+                            <div class="completed-text">Show Completed</div>
+                        </div>
+                        <div class="margin-bottom"></div>
+                    </section>
+                </div>
+
+                <div class="modal fade popUpContainer" id="popUpContainer">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content" style="bottom: 22%;">
+                            <div class="modal-header">
+                                <h4 class="modal-title headerText">Details</h4>
+                                <span class="popIpDone" data-bs-dismiss="modal">Done</span>
+                            </div>
+                            <div class="modal-body" style="padding: 0px;">
+                                <div class="popupTitle">
+                                    <p>title</p>
+                                </div>
+                                <div class="popupTitle">
+                                    <p>Remind me on day</p>
+                                </div>
+                                <div class="popupSettings">
+                                    <div class="popupPriority">
+                                        <div>
+                                            <p>Priority</p>
+                                        </div>
+                                        <div class="btn-group btn-group-lg priorityValues" role="group"
+                                            aria-label="priorityValues">
+                                            <button type="button"
+                                                class="btn btn-outline-primary selectedPriority">None</button>
+                                            <button type="button" class="btn btn-outline-primary">!</button>
+                                            <button type="button" class="btn btn-outline-primary">!!</button>
+                                            <button type="button" class="btn btn-outline-primary">!!!</button>
+                                        </div>
+                                    </div>
+                                    <div class="popupPriority popupList">
+                                        <span>List</span>
+                                        <span class="popupNotes">New List</span>
+                                    </div>
+                                    <div class="popupNotes popupList">Notes</div>
+                                </div>
+                            </div>
+                            <div class="modal-footer" style="border: none;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="jobsTabContent" style="display:none;">
+                <p>Jobs tab</p>
+            </div>
+        </div>
+        <div class="footerTab border py-2">
+            <img src="https://dipeshyadav8655.github.io/post/static/media/HomeIcon.449f13e4edeaf6f382f4c49a9b08c637.svg"
+                alt="Home" data-target="homeTabContent">
+            <img src="https://dipeshyadav8655.github.io/post/static/media/NetworksIcon.caeaddc07dc7579b87505fac40bc8679.svg"
+                alt="Network" data-target="networkTabContent">
+            <img src="https://dipeshyadav8655.github.io/post/static/media/PostIcon.0bdd8f9c789084a305eccd0f43d9fce3.svg"
+                alt="Post" data-target="postTabContent">
+            <img src="https://dipeshyadav8655.github.io/post/static/media/NotificationIcon.c6583716da529c31eaf8ae36b14daad3.svg"
+                alt="Notification" data-target="NotoficationTabContent">
+            <img src="https://dipeshyadav8655.github.io/post/static/media/JobsIcon.b58767c3918144245c74402d3cf96e03.svg"
+                alt="Jobs" data-target="jobsTabContent">
+        </div>
+    </div>
+
+    <div id="commentModal" class="modal commentModal">
+        <div class="modal-content">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#aaa"
+                class="bi bi-arrow-left closeComment" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+            </svg>
+            <div style="display: flex;width: 100%;">
+                <div class="profile-image">
+                    <img src="https://placehold.co/300x300?text=Coming+Soon" alt="Profile Image">
+                </div>
+                <textarea id="commentInput" placeholder="Enter your comment here..."></textarea>
+            </div>
+            <div class="comment-button-container">
+                <div class="left-comment-CTA">
+                    <i class="bi bi-keyboard-fill"></i>
+                    <i class="bi bi-threads"></i>
+                    <i class="bi bi-camera-fill"></i>
+                </div>
+                <button id="postComment" class="postComment">Post</button>
+            </div>
+        </div>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+
+    <script>
+        //for lazy loading action for images in home page
+        const lazyImages = document.querySelectorAll(".lazy");
+
+        const options = {
+            root: null, // Use the viewport as the root
+            rootMargin: "0px",
+            threshold: 0.1 // Specify the threshold for intersection
+        };
+
+        const handleIntersection = (entries, observer) => {
+            entries.forEach((entry) => {
+                console.log(entry);
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const src = img.getAttribute("data-src");
+
+                    // Replace the placeholder with the actual image source
+                    img.src = src;
+
+                    // Stop observing the image
+                    observer.unobserve(img);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(handleIntersection, options);
+
+        lazyImages.forEach((image) => {
+            observer.observe(image);
+        });
+
+    </script>
+
+    <script>
+
+        //for updating the like counter on clicking like img icon
+        document.addEventListener("DOMContentLoaded", function () {
+            var likeButton = document.querySelector('.like');
+            var likeCounter = document.querySelector('.like-counter');
+
+            likeButton.addEventListener('click', function () {
+                var currentCount = parseInt(likeCounter.textContent);
+                likeCounter.textContent = currentCount + 1;
+            });
+        });
+
+        //for the home page content hide and show action 
+        function toggleTaglineContent() {
+            var content = document.querySelector('.initial-content');
+            var btn = document.querySelector('.mainContent-tagline-span');
+
+            if (content.classList.contains('show-content')) {
+                content.classList.remove('show-content');
+                btn.textContent = "... Show More";
+            } else {
+                content.classList.add('show-content');
+                btn.textContent = "Show Less";
+            }
+        }
+    </script>
+
+    <script>
+        //for opening the comment modal and updating the comment counter
+        document.addEventListener("DOMContentLoaded", function () {
+            var commentIcon = document.querySelector('.commentIcon');
+            var modal = document.getElementById('commentModal');
+            var closeBtn = document.querySelector('.closeComment');
+            var postBtn = document.getElementById('postComment');
+            var commentCounter = document.getElementById("commentCounter");
+
+            commentIcon.addEventListener('click', function () {
+                modal.style.display = "block";
+            });
+
+            closeBtn.addEventListener('click', function () {
+                modal.style.display = "none";
+            });
+
+            postBtn.addEventListener('click', function () {
+                var commentText = document.getElementById('commentInput').value;
+                console.log("Posted comment:", commentText);
+                updateCommentCounter();
+                commentInput.value = "";
+                modal.style.display = "none";
+            });
+
+            // Function to update the comment counter
+            function updateCommentCounter() {
+                let currentCount = parseInt(commentCounter.textContent.split(" ")[0]); // Retrieve current count
+                currentCount++; // Increment the count
+                commentCounter.textContent = currentCount + " comment" + (currentCount !== 1 ? "s" : ""); // Update the text
+            }
+        });
+    </script>
+
+    <script>
+        //for changing the tab content
+        document.querySelector('.footerTab').addEventListener('click', function (event) {
+            const target = event.target;
+            if (target.tagName === 'IMG' && target.hasAttribute('data-target')) {
+                const contentId = target.getAttribute('data-target');
+                const allContents = document.querySelectorAll('.instaBodyContent > div');
+                allContents.forEach(content => {
+                    content.style.display = 'none';
+                });
+                document.getElementById(contentId).style.display = 'block';
+            }
+        });
+    </script>
+
+    <script>
+        // network tab expand action for li
+        function toggleNetworkContent(element) {
+            // Toggle the 'expanded' class for the clicked li
+            element.classList.toggle("expanded");
+
+            // Toggle the visibility of the expandable content
+            var content = element.querySelector(".expandable-content");
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+    </script>
+
+    <script>
+        // Get the span element
+        const spanElement = document.querySelector('.opensPopUp');
+
+        // Add click event listener
+        spanElement.addEventListener('click', function () {
+            // Show the modal
+            $('#popUpContainer').modal('show');
+        });
+
+    </script>
+</body>
+
+</html>
