@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+	
+	<style>.track {
+  background-color: #E6E6E8;
+    display: flex;
+    border-radius: 0.5rem;
+    padding: 0.125rem;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.control {
+  display: block;
+  cursor: pointer;
+}
+.control__input {
+  opacity: 0;
+  width: 1px;
+  height: 0px;
+  position: absolute;
+}
+.control__input:checked ~ .control__indicator {
+    background: #fcf9f9;
+    color: #000;
+    border-radius: 0.55rem;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 17%);
+}
+.control__indicator {
+      padding: 0.5rem 4.5rem;
+  border-radius: 0.25rem;
+  transition: all 0.1s ease-out;
+  will-change: box-shadow, background-color;
+  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
+  line-height: 1;
+  background:#ededed;
+  font-weight: 500;
+  font-family: SF Pro Display;
+  color: #333;
+  letter-spacing: -0.25px;
+    font-size: 16px;
+}
+
+/* Pen Styles */
+
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+}
+hr:not([size]) {
+    height: 0.025px !important;
+}
+.track {
+   background: #ededed;
+    display: flex;
+    border-radius: 0.5rem;
+    padding: 0.125rem;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+	box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
+    transition: all .3s cubic-bezier(0,0,.5,1);
+}
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('fonts/sf-pro-displayregular.eot');
+    src: url('fonts/sf-pro-displayregular.eot?#iefix') format('embedded-opentype'),
+         url('fonts/IBMPlexSans-Regular.woff2') format('woff2'),
+         url('fonts/SFNSText-Medium.woff') format('woff'),
+         url('fonts/sf-pro-displayregular.ttf')  format('truetype'),
+         url('fonts/sf-pro-displayregular.svg#SF Pro Display') format('svg');
+}
+
+@font-face {
+    font-family: 'SF Pro Display1';
+    src: url('fonts/sf-pro-displayregular.eot');
+    src: url('fonts/sf-pro-displayregular.eot?#iefix') format('embedded-opentype'),
+         url('fonts/SFNSText-Medium.woff') format('woff2'),
+         url('fonts/IBMPlexSans-Regular.woff') format('woff'),
+         url('fonts/sf-pro-displayregular.ttf')  format('truetype'),
+         url('fonts/sf-pro-displayregular.svg#SF Pro Display') format('svg');
+}
+
+
+@font-face {
+    font-family: 'SF Pro';
+    src: url('fonts/sf-pro-displayregular.eot');
+    src: url('fonts/sf-pro-displayregular.eot?#iefix') format('embedded-opentype'),
+         url('fonts/SFNSText-Medium.woff') format('woff2'),
+         url('fonts/SFNSDisplay-Semibold.woff') format('woff'),
+         url('fonts/sf-pro-displayregular.ttf')  format('truetype'),
+         url('fonts/sf-pro-displayregular.svg#SF Pro Display') format('svg');
+}
+
+
+
+
+
+
+@font-face {
+  font-family: sf-pro-displayregular;
+  src: url(fonts/sf-pro-displayregular.woff);
+}
+
+div {
+  font-family: sf-pro-displayregular;
+}
+
+p {
+    margin-top: -4px;
+    margin-bottom: 0rem;
+}
+.col-1 {
+    margin-top: 2%;
+    flex: 0 0 auto;
+    width: 8.33333333%;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0rem !important;
+    color: #212529;
+    text-decoration: none;
+    border: 1px solid rgba(0,0,0,.125);
+    cursor: pointer;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+ section.fotter-bottom {
+            background: #fff;
+            z-index: 999;
+            box-shadow: 1px 1px 3px 1px #2c282866;
+            padding: 5px 0;
+            position: fixed;
+            bottom: 0;
+            height: 66px;
+            width: 100%;
+        }
+
+        .notification {
+            margin: 2px 11px;
+        }
+
+        .notification p {
+            font-size: 8px;
+            text-align: center;
+        }
+
+        .notification img {
+            width: 40px;
+            box-shadow: 1px 1px 1px 1px #ddd;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            height: 40px;
+        }
+
+        .icon {
+            width: 40px;
+            box-shadow: 1px 1px 1px 1px #ddd;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            color: #787171;
+            font-size: 25px;
+            position: relative;
+        }
+
+        .voice-icon {
+            position: relative;
+        }
+
+        .voice-icon .fa {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            box-shadow: 1px 1px 1px 0px #4b47473d;
+            text-align: center;
+            left: -22px;
+            right: 0;
+            margin: 0 auto;
+            top: -38px;
+            background: #fff;
+            font-size: 28px;
+            line-height: 45px;
+        }
+        .icon span {
+    font-size: 8px;
+    position: absolute;
+    background: #dc3545;
+    width: 12px;
+    height: 12px;
+    border-radius: 15px;
+   right: -1px;
+    top: -4px;
+    line-height: 12px;
+    color: #fff;
+}
+
+
+section.fotter-bottom {
+    background: #f1f1f1;
+    z-index: 999;
+    box-shadow: 1px 1px 3px 1px #2c282866;
+    padding: 5px 0;
+    position: fixed;
+    bottom: 0;
+    height: 66px;
+    width: 100%;
+}
+.personName {
+  font-size: x-large;
+  margin-top: 15px;
+}
+.contact-image {
+  height: 60px;
+  width: 60px;
+} 
+.callData {
+  display: inline-flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.otherOptions {
+  display: inline-flex;
+  justify-content: space-evenly;
+}
+.expandable-content {
+            display: none;
+            padding: 10px;
+        }
+
+        .list-group-item.expanded .expandable-content {
+            display: block;
+        }
+</style>
+
+	
+  </head>
+  <body style="background-image: linear-gradient(90deg,#f9f9f9,#ffffff 24%,#ffffff 45%,#f9f9f9 76%,#fffafa);">
+   
+  <div style="padding: 7px;">
+    <div class="track">
+      <label for="item-1" class="control">
+        <input id="item-1" type="radio" name="ans4" value="High" class="control__input" checked="">
+        <div class="control__indicator">New </div>
+      </label>
+      <label for="item-2" class="control">
+        <input id="item-2" type="radio" name="ans4" value="Medium" class="control__input">
+        <div class="control__indicator">Processed</div>
+      </label>
+  
+    </div>
+  </div>
+  
+  <hr style="margin: 0.5rem 0;">
+  
+  
+  <ul class="list-group list-group-flush">
+  
+    <li class="list-group-item" onclick="toggleNetworkContent(this)">
+      <div class="container">
+        <div class="row align-items-start">
+          <div class="col-1" style="margin-top: 15px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-outbound" viewBox="0 0 16 16">
+              <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5"/>
+            </svg>
+          </div>
+
+          <div class="col-8">
+            <p class="personName">Rajesh </p>
+          </div>
+  
+          <div class="col-3">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+                <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5"/>
+                <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3"/>
+              </svg>
+              <svg fill="#0071eb" viewBox="0 0 268.0201416015625 158.116943359375" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" class="symbol-icon layout-box" aria-hidden="true"
+                style="height: 35.6847px; ">
+                <g transform="matrix(1 0 0 1 75.46503906249995 114.2884521484375)">
+                  <path
+                    d="M58.5449 14.5508C85.791 14.5508 108.35-8.05664 108.35-35.2539C108.35-62.5 85.7422-85.0586 58.4961-85.0586C31.2988-85.0586 8.74023-62.5 8.74023-35.2539C8.74023-8.05664 31.3477 14.5508 58.5449 14.5508ZM58.5449 6.25C35.498 6.25 17.0898-12.207 17.0898-35.2539C17.0898-58.3008 35.4492-76.7578 58.4961-76.7578C81.543-76.7578 100-58.3008 100.049-35.2539C100.098-12.207 81.5918 6.25 58.5449 6.25ZM57.5195-25.1465C59.9609-25.1465 61.4746-26.709 61.4746-28.6133L61.4746-29.1992C61.4746-31.9336 63.0371-33.6914 66.4551-35.9375C71.1914-39.0625 74.5605-41.8945 74.5605-47.7539C74.5605-55.8594 67.334-60.2539 59.0332-60.2539C50.6348-60.2539 45.1172-56.25 43.7988-51.7578C43.5547-50.9766 43.3594-50.1465 43.3594-49.3652C43.3594-47.168 45.1172-45.9961 46.7285-45.9961C49.5117-45.9961 49.9512-47.4609 51.5137-49.3164C53.125-52.002 55.4688-53.6133 58.7402-53.6133C63.1836-53.6133 66.0645-51.0742 66.0645-47.3633C66.0645-44.043 64.0137-42.4316 59.7656-39.4531C56.25-37.0117 53.6133-34.4238 53.6133-29.6387L53.6133-29.0039C53.6133-26.4648 55.0293-25.1465 57.5195-25.1465ZM57.4219-10.5957C60.2539-10.5957 62.6953-12.8418 62.6953-15.6738C62.6953-18.5059 60.3027-20.752 57.4219-20.752C54.541-20.752 52.1484-18.457 52.1484-15.6738C52.1484-12.8906 54.5898-10.5957 57.4219-10.5957Z">
+                  </path>
+                </g>
+              </svg>
+            </div>
+            <div class="col-1" style="color: #cccccc;">
+              12:30PM
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Example expandable content -->
+      <div class="expandable-content">
+        <div class="container" style="display: flex; flex-direction: column;">
+          <div class="callData">
+            <div class="callTime">
+              <p><b>Mobile +918309496206</b></p>
+              <p style="margin-top: 10px;">Outgoing Call, 0 mins 31 secs</p>
+            </div>
+            <div class="profileImage">
+              <img class="contact-image" src="https://letusbiz.com/old/crm/desktop/add11.png">
+            </div>
+          </div>
+          <div class="otherOptions">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#0071e3" class="bi bi-telephone"
+              viewBox="0 0 16 16">
+              <path
+                d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#0071e3" class="bi bi-chat"
+              viewBox="0 0 16 16">
+              <path
+                d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894m-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#0071e3" class="bi bi-camera-video"
+              viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#0071e3" class="bi bi-info-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+              <path
+                d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </li>
+  
+    <hr style="margin: 0rem 0;">
+  
+  
+    <li class="list-group-item" onclick="toggleNetworkContent(this)">
+      <div class="container">
+        <div class="row align-items-start">
+          <div class="col-1" style="margin-top: 15px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-outbound" viewBox="0 0 16 16">
+              <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5"/>
+            </svg>
+          </div>
+
+          <div class="col-8">
+            <p class="personName">Mayil </p>
+          </div>
+          
+          <div class="col-3">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+                <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5"/>
+                <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3"/>
+              </svg>
+              <svg fill="#0071eb" viewBox="0 0 268.0201416015625 158.116943359375" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" class="symbol-icon layout-box" aria-hidden="true"
+                style="height: 35.6847px; ">
+                <g transform="matrix(1 0 0 1 75.46503906249995 114.2884521484375)">
+                  <path
+                    d="M58.5449 14.5508C85.791 14.5508 108.35-8.05664 108.35-35.2539C108.35-62.5 85.7422-85.0586 58.4961-85.0586C31.2988-85.0586 8.74023-62.5 8.74023-35.2539C8.74023-8.05664 31.3477 14.5508 58.5449 14.5508ZM58.5449 6.25C35.498 6.25 17.0898-12.207 17.0898-35.2539C17.0898-58.3008 35.4492-76.7578 58.4961-76.7578C81.543-76.7578 100-58.3008 100.049-35.2539C100.098-12.207 81.5918 6.25 58.5449 6.25ZM57.5195-25.1465C59.9609-25.1465 61.4746-26.709 61.4746-28.6133L61.4746-29.1992C61.4746-31.9336 63.0371-33.6914 66.4551-35.9375C71.1914-39.0625 74.5605-41.8945 74.5605-47.7539C74.5605-55.8594 67.334-60.2539 59.0332-60.2539C50.6348-60.2539 45.1172-56.25 43.7988-51.7578C43.5547-50.9766 43.3594-50.1465 43.3594-49.3652C43.3594-47.168 45.1172-45.9961 46.7285-45.9961C49.5117-45.9961 49.9512-47.4609 51.5137-49.3164C53.125-52.002 55.4688-53.6133 58.7402-53.6133C63.1836-53.6133 66.0645-51.0742 66.0645-47.3633C66.0645-44.043 64.0137-42.4316 59.7656-39.4531C56.25-37.0117 53.6133-34.4238 53.6133-29.6387L53.6133-29.0039C53.6133-26.4648 55.0293-25.1465 57.5195-25.1465ZM57.4219-10.5957C60.2539-10.5957 62.6953-12.8418 62.6953-15.6738C62.6953-18.5059 60.3027-20.752 57.4219-20.752C54.541-20.752 52.1484-18.457 52.1484-15.6738C52.1484-12.8906 54.5898-10.5957 57.4219-10.5957Z">
+                  </path>
+                </g>
+              </svg>
+            </div>
+            <div class="col-1" style="color: #cccccc;">
+              12:30PM
+            </div>
+          </div>
+
+        </div>
+      </div>
+  
+      <div class="expandable-content">
+        <div class="container" style="display: flex; flex-direction: column;">
+          <div class="callData">
+            <div class="callTime">
+              <p><b>Mobile +919433790125</b></p>
+              <p style="margin-top: 10px;">Incomming Call, 2 mins 51 secs</p>
+            </div>
+            <div class="profileImage">
+              <img class="contact-image" src="https://letusbiz.com/old/crm/desktop/add11.png">
+            </div>
+          </div>
+          <div class="otherOptions">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#0071e3" class="bi bi-telephone"
+              viewBox="0 0 16 16">
+              <path
+                d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#0071e3" class="bi bi-chat"
+              viewBox="0 0 16 16">
+              <path
+                d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894m-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#0071e3" class="bi bi-camera-video"
+              viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#0071e3" class="bi bi-info-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+              <path
+                d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+            </svg>
+          </div>
+        </div>
+      </div>
+  
+    </li>
+    <hr style="margin: 0rem 0;">
+  </ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous">
+    </script>
+
+<script>
+  function toggleNetworkContent(element) {
+      // Toggle the 'expanded' class for the clicked li
+      element.classList.toggle("expanded");
+
+      // Toggle the visibility of the expandable content
+      var content = element.querySelector(".expandable-content");
+      if (content.style.display === "block") {
+          content.style.display = "none";
+      } else {
+          content.style.display = "block";
+      }
+  }
+</script>
+
+  </body>
+</html>
