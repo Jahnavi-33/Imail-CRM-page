@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        @media (max-width: 767px) {
+            .hidden-xs {
+                display: none !important
+            }
+        }
+
+        @media (min-width: 768px) and (max-width:1023px) {
+            .hidden-sm {
+                display: none !important
+            }
+        }
+
+        @media (min-width: 1024px) and (max-width:1311px) {
+            .hidden-md {
+                display: none !important
+            }
+        }
+
+        @media (min-width: 1312px) {
+            .hidden-lg {
+                display: none !important
+            }
+        }
+        .text-left {
+            text-align: left;
+        }
+        body {
+            font-family: TaubSans_regular,Arial,sans-serif;
+        }
+        
+/* header styles start */
+.ahi-navigationBar-header {
+            background-color: white;
+            box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        .topnav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 7px;
+        }
+        .topnav-left-wrapper {
+            display: flex;
+            justify-content: space-around;
+        }
+        .topnav-nav-list {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin-left: 25%;
+            margin-top: 2.5%;
+        }
+        .topnav-nav-list-items {
+            margin-right: 5%;
+            color: #050d3a;
+            font-size: 14px;
+            line-height: 16px;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .topnav-right-wrapper {
+            display: flex;
+        }
+        .free-consultation-btn {
+            color: white;
+            background-color: rgb(18, 28, 78);
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 25px;
+            white-space: nowrap;
+        }
+        @media only screen and (max-width: 768px) { 
+            .free-consultation-btn {
+                color: white;
+                background-color: rgb(18, 28, 78);
+                font-size: 20px;
+                font-weight: 500;
+                border-radius: 25px;
+                white-space: nowrap;
+            }
+        }
+        .ourProcess-utility-nav-link,
+        .contactUS-utility-nav-link {
+            margin-right: 5%;
+            color: #050d3a;
+            font-size: 14px;
+            line-height: 16px;
+            display: inline-block;
+            white-space: nowrap;
+            text-decoration: none;
+            margin-top: 3.5%;
+        }
+        .topNav-searchIcon {
+            color: #050d3a;
+            margin-right: 5%;
+            margin-top: 2.6%;
+        }
+        .topnav-hamber-menu {
+            font-size: 25px;
+        }
+        .navigationSideMenu {
+            display: none;
+            margin-top: 18%;
+            background-color: white;
+        }
+        .navigationSideMenu-nav-list {
+            list-style: none;
+        }
+        .navigationSideMenu-nav-list-items {
+            cursor: pointer;
+            color: #050d3a;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 16px;
+            white-space: nowrap;
+            padding: 5% 1%;
+        }
+/* header styles end */
+
+/* footer styles start */
+.AHI-footer {
+            background-color: #f5f5f59c;
+            padding: 3%;
+        }
+        .footer-icons-CTA > svg {
+            margin-right: 2%;
+        }
+        .footer-links-CTA {
+            margin: 3.5% 0;
+        }
+        .footer-links-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+        @media only screen and (max-width: 768px) { 
+            .footer-links-list {
+                list-style: none;
+                padding: 0;
+                display: inline-block;
+        }
+        }
+        .footer-link-list-item {
+            margin-right: 1%;
+            font-size: 16px;
+            font-weight: 300;
+            color: rgb(33, 37, 54);
+        }
+        @media only screen and (max-width: 768px) { 
+            .footer-link-list-item {
+                margin-right: 2%;
+                font-size: 16px;
+                font-weight: 300;
+                color: rgb(33, 37, 54);
+                display: inline-block;
+            }
+        }
+        .footer-description-CTA {
+            padding: 1% 0 7% 0;
+        }
+        .footer-description-text {
+            font-size: 16px;
+            font-weight: 300;
+            color: rgb(33, 37, 54);
+        }
+/* footer styles end */
+        .AHIAboutPage-bodySection {
+            margin-top: 4.2%;
+            background-color: #f5f5f59c;
+        }
+        @media only screen and (max-width: 768px) { 
+            .AHIAboutPage-bodySection {
+                margin-top: 12%;
+                background-color: #f5f5f59c;
+            }
+        }
+        .aboutPage-HeroCTA {
+            padding: 5% 3%;
+            background-image: url('https://www.adp.com/-/media/adp/redesign2018/images/about-adp/hero/about_us-hero-image-mobile.jpg?rev=9032bc8f082b4efc8b39a5640d3b7be4&la=en&h=360&w=640&hash=0A472B1254C5A44A51EE975A85AB90F7');
+            background-size: cover;
+            background-position: center;
+        }
+        @media only screen and (max-width: 768px) {
+            .aboutPage-HeroCTA {
+                background-image: none;
+                padding: 0% 0% 5% 3%;
+            }
+        }
+        .hero-img-mobile {
+            max-width: 100%;
+        }
+        .aboutPage-hero-text-CTA {
+            padding: 3% 2%;
+            background-color: whitesmoke;
+            text-align: center;
+            border-radius: 12px;
+        }
+        .aboutPage-hero-text {
+            font-size: 40px;
+            line-height: 45px;
+            font-weight: 500;
+        }
+        @media only screen and (max-width: 768px) {
+            .aboutPage-hero-text {
+                font-size: 35px;
+                margin-top: 2%;
+            }
+        }
+        .whoWeAre-CTA{
+            padding: 9% 3% 6%;
+            text-align: center;
+        }
+        .whoWeAre-heading-CTA {
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .whoWeAre-heading-text {
+            font-size: 36px;
+            line-height: 42px;
+            font-weight: 500;
+        }
+        .whoWeAre-description-text {
+            font-size: 16px;
+            line-height: 24px;
+            margin: 3% 0;
+        }
+        .whoWeAre-description-text > a {
+            color: #2062fe;
+            text-decoration: none;
+        }
+        .whoWeAre-description-text > a:hover {
+            text-decoration: underline;
+        }
+        .whoWeAre-CEO-CTA {
+            padding: 4% 8%;
+        }
+        .CEO-img-item {
+            border-radius: 12px;
+            height: 200px;
+            width: 200px;
+        }
+        .message-text {
+            font-size: 20px!important;
+            line-height: 26px;
+        }
+        .message-cta {
+            margin-bottom: 3%;
+            text-align: left;
+        }
+        @media only screen and (max-width: 768px) {
+            .message-cta {
+                margin-bottom: 3%;
+                text-align: center;
+                margin-top: 6%;
+            }
+        }
+        .CEO-name-text {
+            font-size: 16px;
+            line-height: 24px;
+        }
+        .CEO-name-cta {
+            padding: 3% 0;
+            text-align: left;
+        }
+        .CEO-link-cta {
+            text-align: left;
+        }
+        @media only screen and (max-width: 768px) {
+            .CEO-name-cta {
+                padding: 3% 0;
+                text-align: center;
+            }
+        }
+        @media only screen and (max-width: 768px) {
+            .CEO-link-cta {
+                text-align: center;
+            }
+        }
+        .CEO-link-text {
+            color: #2062fe;
+            line-height: 20px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .CEO-link-text > a {
+            text-decoration: none;
+        }
+        .CEO-link-text > a:hover {
+            text-decoration: underline;
+        }
+        .awards-recog-CTA {
+            padding: 1% 1% 4%;
+        }
+        .awards-heading-CTA {
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .awards-heading-text {
+            font-size: 40px;
+            line-height: 46px;
+            font-weight: 500;
+            display: block;
+        }
+        .awards-sub-heading-text {
+            font-size: 16px;
+            line-height: 24px;
+            margin: 1% 0 5%;
+        }
+        .award-cards-CTA {
+            padding: 3% 6%;
+        }
+        .awardCardComponent {
+            text-align: center;
+            padding: 8% 2%;
+            background-color: white;
+            box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
+            margin-top: 4%;
+        }
+        .awardCard-img-item {
+            height: 100px;
+            width: 100px;
+        }
+        .awardCard-name-text {
+            font-size: 20px;
+            line-height: 24px;
+        }
+        .awardCard-name-CTA {
+            padding: 5% 3% 2%;
+        }
+        .awardCard-yar-text {
+            color: #696d87;
+            font-size: 20px;
+        }
+        .about-btn-CTA {
+            background-color: rgb(18, 28, 78);
+            padding: 3% 10%;
+        }
+        @media only screen and (max-width: 768px) {
+            .about-btn-CTA {
+                background-color: rgb(18, 28, 78);
+                padding: 6% 10%;
+            }
+        }
+        .about-btn-CTA-heading {
+            font-size: 30px!important;
+            line-height: 36px;
+            font-weight: 500;
+            color: white;
+        }
+        .about-btn {
+            background-color: rgb(1, 72, 239);
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 30px;
+            padding: 6% 9%;
+            white-space: nowrap;
+        }
+        @media only screen and (max-width: 768px) {
+            .about-btn {
+                padding: 5% 8%;
+                width: 100%;
+                margin-top: 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="AHIAboutPage" id="AHIAboutPage">
+        <header class="ahi-navigationBar-header hidden-xs hidden-sm">
+            <div class="topnav-wrapper container">
+                <div class="topnav-left-wrapper">
+                    <div class="topnav-header-logo">
+                        <img alt="ADP logo" src="https://www.adp.com/-/media/adp/redesign2018/ui/logo-adp-fy19.svg?rev=0769ecbf84a9412a93e2cd52b7319a13&hash=C2451A542096BF16BC40698417D5A6FD" 
+                            class="topnav-header-logo-img" height="32" width="70" loading="eager" fetchpriority="high">
+                    </div>
+                    <ul class="topnav-nav-list">
+                        <li class="topnav-nav-list-items">What We Offer</li>
+                        <li class="topnav-nav-list-items">What We Serve</li>
+                        <li class="topnav-nav-list-items">Why Us?</li>
+                        <li class="topnav-nav-list-items">Pricing</li>
+                        <li class="topnav-nav-list-items">About Us</li>
+                    </ul>
+                </div>
+                <div class="topnav-right-wrapper">
+                    <i class="bi bi-search topNav-searchIcon"></i>
+                    <a href="#" class="ourProcess-utility-nav-link">Our Process</a>
+                    <a href="#" class="contactUS-utility-nav-link">Contact Us</a>
+                    <button type="button" class="btn btn-lg free-consultation-btn">Free Consultation</button>
+                </div>
+            </div>
+        </header>
+        <header class="ahi-navigationBar-header hidden-md hidden-lg">
+            <div class="topnav-wrapper container">
+                <div class="topnav-left-wrapper">
+                    <div class="topnav-header-logo">
+                        <img alt="ADP logo" src="https://www.adp.com/-/media/adp/redesign2018/ui/logo-adp-fy19.svg?rev=0769ecbf84a9412a93e2cd52b7319a13&hash=C2451A542096BF16BC40698417D5A6FD" 
+                            class="topnav-header-logo-img" height="30" width="75" loading="eager" fetchpriority="high">
+                    </div>
+                </div>
+                <div class="topnav-right-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-list topnav-hamber-menu" viewBox="0 0 16 16" onclick="showAHISideMenu()">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                    </svg>
+                </div>
+            </div>
+        </header>
+        <div class="navigationSideMenu" id="navigationSideMenu">
+            <ul class="navigationSideMenu-nav-list">
+                <li class="navigationSideMenu-nav-list-items">
+                    What We Offer
+                </li>
+                <li class="navigationSideMenu-nav-list-items">
+                    What We Serve
+                </li>
+                <li class="navigationSideMenu-nav-list-items">
+                    Why Us?
+                </li>
+                <li class="navigationSideMenu-nav-list-items">
+                    Pricing
+                </li>
+                <li class="navigationSideMenu-nav-list-items">
+                    About Us
+                </li>
+                <li class="navigationSideMenu-nav-list-items">
+                    Our Process
+                </li>
+                <li class="navigationSideMenu-nav-list-items">
+                    Contact Us
+                </li>
+                <li class="navigationSideMenu-nav-list-items">
+                    <button type="button" class="btn btn-lg free-consultation-btn">Free Consultation</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="AHIAboutPage-bodySection" id="AHIAboutPage-bodySection">
+            <div class="columnContainer">
+                <div class="row columns-wrapper">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 aboutPage-HeroCTA">
+                        <div class="columnContainer">
+                            <div class="container">
+                                <div class="row columns-wrapper">
+                                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 aboutPage-hero-text-CTA hidden-sm hidden-xs">
+                                        <span class="aboutPage-hero-text">
+                                            ADP — providing solutions that simplify work
+                                        </span>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 aboutPage-hero-text-CTA hidden-lg hidden-md">
+                                        <img class="hero-img-mobile"
+                                        src="https://www.adp.com/-/media/adp/redesign2018/images/about-adp/hero/about_us-hero-image-mobile.jpg?rev=9032bc8f082b4efc8b39a5640d3b7be4&la=en&h=360&w=640&hash=0A472B1254C5A44A51EE975A85AB90F7">
+                                        <p class="aboutPage-hero-text">
+                                            ADP — providing solutions that simplify work
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columnContainer">
+                <div class="container">
+                    <div class="row columns-wrapper">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="whoWeAre-CTA">
+                                <div class="whoWeAre-heading-CTA">
+                                    <span class="whoWeAre-heading-text">
+                                        Who We Are
+                                    </span>
+                                </div>
+                                <div class="whoWeAre-description-CTA">
+                                    <p class="whoWeAre-description-text">
+                                        At ADP, what we do is about people. Although we have a strong history of providing solutions for human resource challenges, we strive to do more than that. We challenge ourselves to 
+                                        anticipate, think forward and take action in a way that empowers us to shape the changing world of work.
+                                    </p>
+                                    <p class="whoWeAre-description-text">
+                                        For over 75 years, we’ve led the way in defining the future of business solutions. ADP is proud to be named the 2023 Fortune® World's Most Admired Companies™ list again for 17 consecutive years*.
+                                    </p>
+                                    <p class="whoWeAre-description-text">
+                                        We are a comprehensive global provider of cloud-based human capital management (HCM) solutions that unite <a href="#" class="link">HR</a>, <a href="#" class="link">payroll</a>, <a href="#" class="link">talent</a>, <a href="#" class="link">time</a>, <a href="#" class="link">tax</a> and benefits 
+                                        administration, and a leader in business outsourcing services, analytics and compliance expertise. Our unmatched experience, deep insights and cutting-edge <a href="#" class="link">technology</a> have transformed human resources from a back-office administrative function to a strategic business advantage.
+                                    </p>
+                                    <p class="whoWeAre-description-text">
+                                        Learn more about <a href="#" class="link">our philosophy</a>, <a href="#" class="link">success factors</a> and why companies work with ADP.
+                                    </p>
+                                </div>
+                                <div class="columnContainer whoWeAre-CEO-CTA">
+                                    <div class="container">
+                                        <div class="row columns-wrapper">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <div class="columnContainer">
+                                                    <div class="container">
+                                                        <div class="row columns-wrapper">
+                                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                                <div class="whoWeAre-CEO-img-CTA">
+                                                                    <img class="CEO-img-item" alt="CEO"
+                                                                     src="https://www.adp.com//-/media/who-we-are/images/bios/maria-black.jpg?rev=6d6a1e4aa57e4478b090994e0740092f&amp;hash=85C85126CE45C4BD72DC630CF026E9EC" loading="lazy">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                                <div class="message-cta">
+                                                                    <span class="message-text">
+                                                                        “<b>Innovation is at the heart of what we do…</b> and time-tested experience has proven actively 
+                                                                        listening to what people need and want keeps the world of work progressing forward… 
+                                                                        Through changing times, we are proud that ADP has empowered businesses and their people 
+                                                                        for more than 75 years.”
+                                                                    </span>
+                                                                </div>
+                                                                <div class="CEO-name-cta">
+                                                                    <span class="CEO-name-text">
+                                                                        <b>Maria Black,</b> President and CEO
+                                                                    </span>
+                                                                </div>
+                                                                <div class="CEO-link-cta">
+                                                                    <span class="CEO-link-text">
+                                                                        <a href="#">Message from the CEO</a> <i class="bi bi-arrow-right"></i>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columnContainer">
+                <div class="container">
+                    <div class="row columns-wrapper">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="awards-recog-CTA">
+                                <div class="awards-heading-CTA">
+                                    <span class="awards-heading-text">
+                                        Featured Awards & Industry Recognition
+                                    </span>
+                                    <p class="awards-sub-heading-text">
+                                        We're proud to be recognized for our work and values by esteemed organizations.
+                                    </p>
+                                </div>
+                                
+                                <div class="award-cards-CTA">
+                                    <div class="columnContainer">
+                                        <div class="container">
+                                            <div class="row columns-wrapper">
+                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                    <div class="awardCardComponent">
+                                                        <div class="awardCard-img-CTA">
+                                                            <img src="https://www.adp.com//-/media/adp/reskin2022/images/about-adp/awards-and-recognition/seramount-2023-badges-top-company-for-executive-women.png?rev=cdeebbde114546c285c5058552343ade&amp;la=en&amp;h=300&amp;w=300&amp;hash=35AE4C7C55271525D90054AA1C0B9601"  
+                                                            alt="Logo" loading="lazy" class="awardCard-img-item">
+                                                        </div>
+                                                        <div class="awardCard-name-CTA">
+                                                            <span class="awardCard-name-text">
+                                                                Seramount Top 75 Companies for Executive Women
+                                                            </span>
+                                                        </div>
+                                                        <div class="awardCard-year-CTA">
+                                                            <span class="awardCard-yar-text">
+                                                                2023
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                    <div class="awardCardComponent">
+                                                        <div class="awardCard-img-CTA">
+                                                            <img src="https://www.adp.com/-/media/adp/reskin2022/images/about-adp/awards-and-recognition/diversity-inc-2023.png?rev=48c1e96aa6634a03958768c0870cdadc&la=en&h=703&w=500&hash=2A6AB51803B50F51CC1CD005ECEB8158"  
+                                                            alt="Logo" loading="lazy" class="awardCard-img-item">
+                                                        </div>
+                                                        <div class="awardCard-name-CTA">
+                                                            <span class="awardCard-name-text">
+                                                                DiversityInc® Magazine Top 50 Companies for Diversity
+                                                            </span>
+                                                        </div>
+                                                        <div class="awardCard-year-CTA">
+                                                            <span class="awardCard-yar-text">
+                                                                2023
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                    <div class="awardCardComponent">
+                                                        <div class="awardCard-img-CTA">
+                                                            <img src="https://www.adp.com/-/media/adp/reskin2022/images/about-adp/awards-and-recognition/2023-anitaborg-top-companies.png?rev=d3ab7899304e49758abf54ac80db42fe&la=en&h=864&w=700&hash=E890728C0C80731548C62A57F90C874A"  
+                                                            alt="Logo" loading="lazy" class="awardCard-img-item">
+                                                        </div>
+                                                        <div class="awardCard-name-CTA">
+                                                            <span class="awardCard-name-text">
+                                                                Anita Borg Institute Top Company for Women Technologists
+                                                            </span>
+                                                        </div>
+                                                        <div class="awardCard-year-CTA">
+                                                            <span class="awardCard-yar-text">
+                                                                2023
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columnContainer">
+                <div class="row columns-wrapper">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="about-btn-CTA">
+                            <div class="columnContainer">
+                                <div class="container">
+                                    <div class="row columns-wrapper">
+                                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style=" padding: 0% 5%;">
+                                            <span class="about-btn-CTA-heading">More about ADP:</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                            <button class="btn btn-primary about-btn">
+                                                Careers & ADP
+                                            </button>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                            <button class="btn btn-primary about-btn">
+                                                Media Center
+                                            </button>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                            <button class="btn btn-primary about-btn">
+                                                Investor Relations
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    
+        </div>
+
+        <footer class="AHI-footer">
+            <div class="container">
+                <div class="row columns-wrapper">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="container">
+                            <div class="row columns-wrapper">
+                                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
+                                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                                    <div class="footer-container">
+                                        <div class="footer-icons-CTA">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                                                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                                                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+                                                <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                                                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="footer-links-CTA">
+                                            <ul class="footer-links-list">
+                                                <li class="footer-link-list-item">Terms</li>
+                                                <li class="footer-link-list-item"> | </li>
+                                                <li class="footer-link-list-item">Site Map</li>
+                                                <li class="footer-link-list-item"> | </li>
+                                                <li class="footer-link-list-item">Privacy</li>
+                                                <li class="footer-link-list-item"> | </li>
+                                                <li class="footer-link-list-item">Modern Slavery statement</li>
+                                                <li class="footer-link-list-item"> | </li>
+                                                <li class="footer-link-list-item">Wen Accessibility statement</li>
+                                            </ul>
+                                        </div>
+                                        <div class="footer-description-CTA">
+                                            <span class="footer-description-text">
+                                                We provide you, the home buyer/seller, with a detailed and accurate report on the status of home so that you can make an 
+                                                informed the decision. We help make the right decisions during buying/selling or acquiring a new property. 
+                                                By conducting thourough property evaluation, we provide detailed reports outlining any areas that require closer 
+                                                attention to all our clients could buy, sell or upgrade with confidence.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+
+<script>
+    function showAHISideMenu() {
+      var sideMenuDiv = document.getElementById("navigationSideMenu");
+      if (sideMenuDiv.style.display === "block") {
+        sideMenuDiv.style.display = "none";
+      } else {
+        sideMenuDiv.style.display = "block";
+      }
+    }
+</script>
+
+</body>
+</html>

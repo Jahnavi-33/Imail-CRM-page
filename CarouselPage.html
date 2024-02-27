@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carousel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    @media (max-width: 767px) {
+      .hidden-xs {
+        display: none !important
+      }
+    }
+
+    @media (min-width: 768px) and (max-width:1023px) {
+      .hidden-sm {
+        display: none !important
+      }
+    }
+
+    @media (min-width: 1024px) and (max-width:1311px) {
+      .hidden-md {
+        display: none !important
+      }
+    }
+
+    @media (min-width: 1312px) {
+      .hidden-lg {
+        display: none !important
+      }
+    }
+
+    .text-left {
+      text-align: left;
+    }
+    body {
+      background-color: whitesmoke;
+      font-family: proxima-nova, sans-serif;
+    }
+
+    .carousel-img-item {
+      max-height: 500px;
+      min-height: 500px;
+      object-fit: cover;
+      filter: brightness(0.6);
+    }
+
+    .card-body {
+      border: none;
+      background-color: whitesmoke;
+      padding: 4% 4% 4% 0;
+    }
+
+    .collapsible-CTA {
+      padding: 5% 10%;
+    }
+
+    .item1,
+    .item2,
+    .item3 {
+      border-left: 5px solid orangered;
+      padding: 2% 5%;
+      margin-top: 3%;
+    }
+
+    .collapseIteamDesc {
+      font-size: 16px;
+      font-weight: 400;
+    }
+    .collapseIteamHeading {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .collapseIteamDesc-link {
+      font-size: 16px;
+    }
+    .BDOTopNavBar {
+      background-color: white;
+      padding: 1%;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+    }
+    .topnav-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+    .topnav-right-wrapper {
+      display: flex;
+      padding-right: 2%;
+    }
+    .topnav-nav-list {
+      list-style: none;
+      padding: 1% 13% 0 0;
+      display: flex;
+      margin-bottom: 0px;
+    }
+    .topnav-nav-list-items {
+      cursor: pointer;
+      margin-right: 4%;
+      white-space: nowrap;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .topnav-nav-list-items > i {
+      color: rgb(232, 26, 59);
+      font-size: 16px;
+    }
+    .topNavBar-contactBtn {
+      color: white;
+      background-color: rgb(232, 26, 59);
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+      border-radius: 0px;
+      padding: 2% 4%;
+    }
+    .navigationSideMenu {
+      background-color: white;
+      display: none;
+    }
+    .navigationSideMenu-nav-list {
+      list-style: none;
+    }
+    .navigationSideMenu-nav-list-items {
+      font-size: 20px;
+      font-weight: 500;
+      padding: 2% 1%;
+    }
+    .navigationSideMenu-nav-list-items > .bi-chevron-right {
+      color: rgb(232, 26, 59);
+    }
+    .BDOHomePage-bodySection {
+      margin-top: 5%;
+    }
+    .headingContainer {
+      padding: 3% 1%;
+      text-align: center;
+    }
+    .heading-text {
+      font-size: 36px;
+      font-weight: 400;
+    }
+    .topic-image {
+      height: 500px;
+      width: 500px;
+    }
+    @media only screen and (max-width: 768px) { 
+      .topic-image {
+        height: 350px;
+        /* width: 500px; */
+        max-width: 100%;
+      }
+    }
+    .mainHeaderText {
+      font-size: 40px;
+      font-weight: 600;
+      padding: 2%;
+    }
+    @media only screen and (max-width: 768px) {  
+      .mainHeaderText {
+        font-size: 30px;
+        font-weight: 600;
+        padding: 2%;
+      }
+    }
+    .mainSubText {
+      font-size: 20px;
+      font-weight: 400;
+      padding: 0 2% 2%;
+    }
+    @media only screen and (max-width: 768px) {
+      .mainSubText {
+        font-size: 16px;
+        font-weight: 400;
+        padding: 0 2% 2%;
+      }
+    }
+    .hero-learn-btn {
+      color: white;
+      background-color: rgb(232, 26, 59);
+      font-size: 15px;
+      font-weight: 700;
+      white-space: nowrap;
+      border-radius: 0px;
+      padding: 1% 3%;
+      margin-bottom: 1%;
+    }
+    .servicesCTA-bg {
+      background-image: url('https://www.bdo.com/getmedia/650f0ea4-6833-4124-ab74-01bf0891ba3d/bkgd-industries-2.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding: 3% 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="BDOHomePage" id="BDOHomePage">
+    <header class="BDOTopNavBar hidden-sm hidden-xs">
+      <div class="topnav-wrapper container">
+        <div class="topnav-left-wrapper">
+          <div class="topnav-header-logo">
+            <img alt="ADP logo"
+              src="https://www.bdo.com/getmedia/4e64ef6e-396a-4245-b942-b3c74eb04f8f/BDO-USA_web-01.svg"
+              class="topnav-header-logo-img" height="42" width="150" loading="eager" fetchpriority="high">
+          </div>
+        </div>
+        <div class="topnav-right-wrapper">
+          <ul class="topnav-nav-list">
+            <li class="topnav-nav-list-items">Services <i class="bi bi-chevron-down"></i></li>
+            <li class="topnav-nav-list-items">Industries <i class="bi bi-chevron-down"></i></li>
+            <li class="topnav-nav-list-items">Insights <i class="bi bi-chevron-down"></i></li>
+            <li class="topnav-nav-list-items">About Us <i class="bi bi-chevron-down"></i></li>
+          </ul>
+          <button class="btn btn-danger topNavBar-contactBtn">Contact Us</button>
+        </div>
+      </div>
+    </header>
+    <header class="BDOTopNavBar hidden-lg hidden-md">
+      <div class="topnav-wrapper container">
+        <div class="topnav-left-wrapper">
+          <div class="topnav-header-logo">
+            <img alt="ADP logo"
+              src="https://www.bdo.com/getmedia/4e64ef6e-396a-4245-b942-b3c74eb04f8f/BDO-USA_web-01.svg"
+              class="topnav-header-logo-img" height="42" width="150" loading="eager" fetchpriority="high">
+          </div>
+        </div>
+        <div class="topnav-right-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-list topnav-hamber-menu" viewBox="0 0 16 16" onclick="showBDOSideMenu()">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+          </svg>
+        </div>
+      </div>
+    </header>
+    <div class="navigationSideMenu" id="navigationSideMenu">
+      <ul class="navigationSideMenu-nav-list">
+          <li class="navigationSideMenu-nav-list-items">
+            Services <i class="bi bi-chevron-right"></i>
+          </li>
+          <li class="navigationSideMenu-nav-list-items">
+            Industries <i class="bi bi-chevron-right"></i>
+          </li>
+          <li class="navigationSideMenu-nav-list-items">
+            Insights <i class="bi bi-chevron-right"></i>
+          </li>
+          <li class="navigationSideMenu-nav-list-items">
+            About Us <i class="bi bi-chevron-right"></i>
+          </li>
+          <li class="navigationSideMenu-nav-list-items">
+            <button class="btn btn-danger topNavBar-contactBtn">Contact Us</button>
+          </li>
+      </ul>
+    </div>
+
+    <div class="BDOHomePage-bodySection" id="BDOHomePage-bodySection">
+      <div class="columnContainer">
+        <div class="row columns-wrapper">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="carouselExampleCaptions" class="carousel slide">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img
+                      src="https://images.pexels.com/photos/35016/soap-bubble-colorful-ball-soapy-water.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                      class="d-block w-100 carousel-img-item" alt="...">
+                    <div class="carousel-caption d-md-block">
+                      <h5 class="mainHeaderText">Exceptional service. Worldwide.</h5>
+                      <p class="mainSubText">BDO delivers assurance, tax, and advisory services to clients throughout the country and around the
+                        globe.</p>
+                      <button class="btn btn-danger hero-learn-btn">Learn More</button>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="https://images.unsplash.com/photo-1496205856088-91b021308c54?q=80&w=2020&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      class="d-block w-100 carousel-img-item" alt="...">
+                    <div class="carousel-caption d-md-block">
+                      <h5 class="mainHeaderText">Is your organization prepared for SEC climate rules?</h5>
+                      <p class="mainSubText">Understand the proposed SEC requirements & the top anticipated opportunities & challenges.</p>
+                      <button class="btn btn-danger hero-learn-btn">Learn More</button>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://i.pinimg.com/236x/2b/9f/2f/2b9f2f90ca02192f4b5ad1233f849940.jpg"
+                      class="d-block w-100 carousel-img-item" alt="...">
+                    <div class="carousel-caption d-md-block">
+                      <h5 class="mainHeaderText">2024 CFO Outlook Survey</h5>
+                      <p class="mainSubText">Discover the strategies companies are implementing to remain resilient and drive success in the year
+                        ahead.</p>
+                      <button class="btn btn-danger hero-learn-btn">Learn More</button>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="columnContainer">
+        <div class="container">
+          <div class="row columns-wrapper">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="headingContainer">
+                <span class="heading-text">
+                  Featured Topics
+                </span>
+              </div>
+              <div class="columnContainer">
+                <div class="container">
+                  <div class="row columns-wrapper">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                      <div class="collapsible-CTA mt-2">
+                        <div class="item1">
+                          <div data-bs-toggle="collapse" data-bs-target="#collapseContent1" aria-expanded="false"
+                            aria-controls="collapseContent1">
+                             <span class="collapseIteamHeading">
+                              Private Equity PErspectives - Episode 40: Investing in the Undervalued and Underappreciated: U.S. Industrials
+                             </span>
+                          </div>
+                          <div class="collapse" id="collapseContent1">
+                            <div class="card card-body">
+                              <p class="collapseIteamDesc">
+                                On BDO’s new Private Equity PErspectives podcast episode, Nick Santhanam, CEO of Fernweh Group, and Scott Spielvogel, co-founder and managing partner of One Rock Capital Partners, join host Todd Kinney.
+                              </p>
+                              <a href="#" class="collapseIteamDesc-link">Read More</a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="item2">
+                          <div data-bs-toggle="collapse" data-bs-target="#collapseContent2" aria-expanded="false"
+                            aria-controls="collapseContent2">
+                            <span class="collapseIteamHeading">
+                              We May Never See a Better Environment for Transferring Wealth … Here’s Why
+                             </span>
+                          </div>            
+                          <div class="collapse" id="collapseContent2">
+                            <div class="card card-body">
+                              <p class="collapseIteamDesc">
+                                In this article, BDO’s Private Client Services professionals explain why 2024 is an ideal year to prioritize your wealth transfer plans.
+                              </p>
+                              <a href="#" class="collapseIteamDesc-link">Read More</a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="item3">
+                          <div data-bs-toggle="collapse" data-bs-target="#collapseContent3" aria-expanded="false"
+                            aria-controls="collapseContent3">
+                            <span class="collapseIteamHeading">
+                              BDO 2023 SaaS Market Brief
+                             </span>
+                          </div>
+                          <div class="collapse" id="collapseContent3">
+                            <div class="card card-body">
+                              <p class="collapseIteamDesc">
+                                The SaaS market saw a major slowdown in 2022: revenue growth dropped, layoffs spiked, and R&D spending lagged.
+                              </p>
+                              <a href="#" class="collapseIteamDesc-link">Read More</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                      <div class="collapsibleImg-CTA mt-3 p-3">
+                        <img class="topic-image" 
+                            src="https://www.bdo.com/getmedia/5a0a25e5-09b6-4d8d-b480-3c775896620f/TT_EvolvingEco_1.jpg?width=691&height=690&ext=.jpg" alt="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="columnContainer">
+        <div class="container">
+          <div class="row columns-wrapper">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="headingContainer">
+                <span class="heading-text">
+                  Our Services
+                </span>
+              </div>
+              <div class="columnContainer">
+                <div class="container">
+                  <div class="row columns-wrapper">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 servicesCTA-bg">
+                      <div class="columnContainer ">
+                        <div class="container">
+                          <div class="row columns-wrapper">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                HI
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+
+  <script>
+    $(document).ready(function () {
+      function toggleCollapse() {
+        setTimeout(function () {
+          $('#collapseContent1').collapse('show');
+        }, 1000);
+        setTimeout(function () {
+          $('#collapseContent1').collapse('hide');
+          $('#collapseContent2').collapse('show');
+        }, 6000); // Hide content1 after 5 seconds and show content2
+
+        setTimeout(function () {
+          $('#collapseContent2').collapse('hide');
+          $('#collapseContent3').collapse('show');
+        }, 11000); // Hide content2 after 10 seconds and show content3
+
+        setTimeout(function () {
+          $('#collapseContent3').collapse('hide');
+          $('#collapseContent1').collapse('show');
+        }, 16000); // Hide content3 after 15 seconds and show content1
+      }
+
+      toggleCollapse(); // Initial call to start the sequence
+
+      // Repeat the sequence every 15 seconds
+      setInterval(function () {
+        toggleCollapse();
+      }, 16000);
+    });
+  </script>
+  <script>
+    function showBDOSideMenu() {
+      var sideMenuDiv = document.getElementById("navigationSideMenu");
+      if (sideMenuDiv.style.display === "block") {
+        sideMenuDiv.style.display = "none";
+      } else {
+        sideMenuDiv.style.display = "block";
+      }
+    }
+</script>
+</body>
+
+</html>
